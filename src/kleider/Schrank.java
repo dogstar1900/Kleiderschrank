@@ -312,3 +312,4 @@ public class Schrank extends JFrame implements ActionListener {
     }
 }
 
+//fertig
