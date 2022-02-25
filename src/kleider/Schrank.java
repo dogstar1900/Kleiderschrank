@@ -228,11 +228,12 @@ public class Schrank extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==button1) {
+
             allesWeg();
             seite1();
 
             try {
-                FileReader reader = new FileReader("obj.txt");
+                FileReader reader = new FileReader("kleider/obj.txt");
                 int data= reader.read();
 
                 while(data != -1) {
@@ -289,7 +290,7 @@ public class Schrank extends JFrame implements ActionListener {
         if(e.getSource()==allesAkzept) {
             String name = artikelN.getText();
             try {
-                FileWriter writer = new FileWriter("obj.txt");
+                FileWriter writer = new FileWriter("kleider/obj.txt");
                 writer.write(name);
             }
             catch (IOException e1) {
