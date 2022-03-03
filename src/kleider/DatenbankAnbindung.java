@@ -1,19 +1,27 @@
 package kleider;
-
 import java.sql.*;
+
 
 public class DatenbankAnbindung {
 
+
     public static void main(String[] args) {
-        String url = "";
-        String user= "root";
-        String password = "";
-        try (Connection conn = DriverManager.getConnection(url, user, password)){
+        Connection conn;
+        try {
+            String url = "jdbc:mysql://localhost:3306/Kleiderschrank";
+            String user = "root";
+            String pw = "";
 
-           System.out.println("Erfolgreich");
+            conn = DriverManager.getConnection(url, user, null);
 
-        }catch(SQLException ex){
-          System.err.println(ex.getMessage());
+            System.out.println("Im in Bitch!");
+
+
+        } catch (SQLException ex) {
+            System.out.println("Mach doch nicht diese...");
+            System.out.println("SQLException: " + ex.getMessage());
+            System.out.println("SQLState: " + ex.getSQLState());
+            System.out.println("VendorError: " + ex.getErrorCode());
         }
     }
 

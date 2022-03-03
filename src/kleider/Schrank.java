@@ -1,4 +1,5 @@
 package kleider;
+import java.sql.*;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -7,6 +8,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -238,6 +242,7 @@ public class Schrank extends JFrame implements ActionListener {
 
                 while(data != -1) {
                     System.out.println(((char)data));
+
                 }
                 //klamotteAnzeigen = new JLabel(data);
             } catch (FileNotFoundException e1) {
@@ -299,6 +304,7 @@ public class Schrank extends JFrame implements ActionListener {
             }
 
             System.out.println(name);
+
         }
 
 
