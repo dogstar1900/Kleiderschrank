@@ -1,5 +1,6 @@
 package kleider;
 import java.sql.*;
+import com.mysql.cj.x.protobuf.MysqlxCrud;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -12,16 +13,14 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import javax.swing.ButtonGroup;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JRadioButton;
-import javax.swing.JTextField;
+import javax.swing.*;
 
 public class Schrank extends JFrame implements ActionListener {
 
+    String name2="";
+    String groesse="";
+    String farbe="";
+    String art="";
 
     JTextField artikelN;
     JButton button1;
@@ -35,6 +34,8 @@ public class Schrank extends JFrame implements ActionListener {
     JLabel label3;
     JLabel label4;
     JLabel klamotteAnzeigen;
+    JLabel groesseL;
+    JLabel farbeL;
 
     JLabel name;
 
@@ -46,11 +47,12 @@ public class Schrank extends JFrame implements ActionListener {
 
     ButtonGroup gruppeteile;
     JPanel panelGruppe;
+    JComboBox groessenListe;
+    JComboBox farbenListe;
 
 
-    Schrank(){
 
-
+    public Schrank(){
 
         this.setTitle("Digitaler Kleiderschrank");
         this.getContentPane().setLayout(null);
@@ -117,6 +119,14 @@ public class Schrank extends JFrame implements ActionListener {
         this.add(name);
         name.setBounds(330,110,130,20);
 
+        groesseL = new JLabel("Größe wählen:");
+        this.add(groesseL);
+        groesseL.setBounds(285,320,200,20);
+
+        farbeL = new JLabel("Farbe wählen:");
+        this.add(farbeL);
+        farbeL.setBounds(285,370,200,20);
+
         //Radio button
         kaltHose = new JRadioButton("Kurze Hose");
         this.add(kaltHose);
@@ -138,6 +148,20 @@ public class Schrank extends JFrame implements ActionListener {
         this.add(schuhe);
         schuhe.addActionListener(this);
 
+
+        String groesseListe[] = {"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""};
+        groessenListe = new JComboBox(groesseListe);
+        this.add(groessenListe);
+        groessenListe.setBounds(380,320,130,20);
+
+        String farbListe[] = {"Weiß","Beige","Grün","Hellblau","Blau","Gelb","Orange","Rot","Grau","Schwarz"};
+        farbenListe = new JComboBox(farbListe);
+        this.add(farbenListe);
+        farbenListe.setBounds(380,370,130,20);
+
+
+
+
         //Group of radio buttons
         gruppeteile = new ButtonGroup();
         gruppeteile.add(kaltHose);
@@ -154,6 +178,7 @@ public class Schrank extends JFrame implements ActionListener {
         panelGruppe.add(schuhe);
         this.add(panelGruppe);
         panelGruppe.setBounds(380,150,130,150);
+        //panelGruppe.setBackground(Color.black);
 
 
         this.setVisible(true);
@@ -180,6 +205,10 @@ public class Schrank extends JFrame implements ActionListener {
 
         panelGruppe.setVisible(false);
         klamotteAnzeigen.setVisible(false);
+        groessenListe.setVisible(false);
+        groesseL.setVisible(false);
+        farbenListe.setVisible(false);
+        farbeL.setVisible(false);
     }
 
     public void seite1() {
@@ -206,6 +235,11 @@ public class Schrank extends JFrame implements ActionListener {
         schuhe.setVisible(true);
         panelGruppe.setVisible(true);
         allesAkzept.setVisible(true);
+        groessenListe.setVisible(true);
+        groesseL.setVisible(true);
+        farbenListe.setVisible(true);
+        farbeL.setVisible(true);
+
 
     }
 
@@ -227,32 +261,12 @@ public class Schrank extends JFrame implements ActionListener {
 
 
 
-
-
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==button1) {
 
             allesWeg();
             seite1();
-
-            try {
-                FileReader reader = new FileReader("kleider/obj.txt");
-                int data= reader.read();
-
-                while(data != -1) {
-                    System.out.println(((char)data));
-
-                }
-                //klamotteAnzeigen = new JLabel(data);
-            } catch (FileNotFoundException e1) {
-                // TODO Auto-generated catch block
-                e1.printStackTrace();
-            } catch (IOException e1) {
-                // TODO Auto-generated catch block
-                e1.printStackTrace();
-            }
-
 
             System.out.println("button1");
         }
@@ -274,49 +288,43 @@ public class Schrank extends JFrame implements ActionListener {
 
         if(kaltOberteil.isSelected() == true) {
 
-            System.out.println("ko");
+            System.out.println("Kalt Oberteil");
+            art = "KO";
         }
         if(warmOberteil.isSelected() == true) {
 
-            System.out.println("wo");
+            System.out.println("Warm Oberteil");
+            art = "WO";
         }
         if(kaltHose.isSelected() == true) {
 
-            System.out.println("kh");
+            System.out.println("Kalt Hose");
+            art = "KH";
         }
         if(warmHose.isSelected() == true) {
 
-            System.out.println("wh");
+            System.out.println("Warm Hose");
+            art = "WH";
         }
         if(schuhe.isSelected() == true) {
 
-            System.out.println("schuh");
+            System.out.println("Schuh");
+            art = "SH";
         }
         if(e.getSource()==allesAkzept) {
-            String name = artikelN.getText();
-            try {
-                FileWriter writer = new FileWriter("kleider/obj.txt");
-                writer.write(name);
-            }
-            catch (IOException e1) {
-                // TODO Auto-generated catch block
-                e1.printStackTrace();
-            }
+            name2 = artikelN.getText();
+            System.out.println(name2);
 
-            System.out.println(name);
+            groesse = (String) groessenListe.getItemAt(groessenListe.getSelectedIndex());
+            System.out.println(groesse);
 
+            farbe = (String) farbenListe.getItemAt(farbenListe.getSelectedIndex());
+            System.out.println(farbe);
         }
 
-
-
     }
 
 
-
-
-    public static void main(String[] args) {
-        new Schrank();
-    }
 }
 
 //fertig
