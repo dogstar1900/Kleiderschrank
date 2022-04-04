@@ -14,15 +14,18 @@ public class Test2 extends JFrame{
         setSize(500,200);
         setVisible(true);
         setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setContentPane(panel1);
-        pack();
+        this.pack();
 
 
         test2Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new Test1();
                 setVisible(false);
+                panel1.setVisible(false);
+                new Test1();
+
             }
         });
 }
