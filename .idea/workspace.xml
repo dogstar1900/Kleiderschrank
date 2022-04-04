@@ -5,23 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b490e682-4c0c-4dc2-ace7-67357d12ab75" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/guiJulian/Test1.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/guiJulian/Test1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/guiJulian/Test2.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/guiJulian/Test2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/kleider/SchrankVerwaltung.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/kleider/Hose.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/kleider/Kleidung.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/kleider/Oberteil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/kleider/Schuhe.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Kleiderschrank/kleider/DatenbankAnbindung.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Kleiderschrank/kleider/DatenbankAnbindung.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Kleiderschrank/kleider/Schrank.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Kleiderschrank/kleider/Schrank.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Kleiderschrank/kleider/obj.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kleider/DBConnection.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/kleider/DatenbankAnbindung.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kleider/DatenbankAnbindung.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kleider/GUITEST.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kleider/GUITEST.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kleider/Kleidung.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kleider/Main.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/kleider/Schrank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kleider/Schrank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kleider/obj.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kleider/SchrankVerwaltung.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kleider/SchrankVerwaltung.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +126,9 @@
       <workItem from="1645687702452" duration="1663000" />
       <workItem from="1645697360305" duration="17613000" />
       <workItem from="1646638146344" duration="7569000" />
-      <workItem from="1646737373068" duration="12421000" />
+      <workItem from="1646737373068" duration="14835000" />
+      <workItem from="1647850832025" duration="3628000" />
+      <workItem from="1648463271321" duration="855000" />
     </task>
     <servers />
   </component>

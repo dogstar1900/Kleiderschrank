@@ -23,22 +23,11 @@ private Connection conn;
             System.out.println("SQLState: " + ex.getSQLState());
             System.out.println("VendorError: " + ex.getErrorCode());
         }
-        datenbankErstellen();
+
 
     }
 
-    public void datenbankErstellen() throws SQLException {
 
-        Statement stm = conn.createStatement();
-
-        try {
-            stm.executeUpdate("CREATE DATABASE IF NOT EXISTS kleiderschrank");
-            stm.executeUpdate("use kleiderschrank");
-        } catch (SQLException e) {
-            System.out.print(e);
-        }
-
-    }
 
 
 

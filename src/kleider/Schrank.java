@@ -21,6 +21,8 @@ public class Schrank extends JFrame implements ActionListener {
     String groesse="";
     String farbe="";
     String art="";
+    String langKurz="";
+    String schuhTyp="";
 
     JTextField artikelN;
     JButton button1;
@@ -36,18 +38,20 @@ public class Schrank extends JFrame implements ActionListener {
     JLabel klamotteAnzeigen;
     JLabel groesseL;
     JLabel farbeL;
+    JLabel schuhArtl;
 
     JLabel name;
 
-    JRadioButton kaltHose;
-    JRadioButton warmHose;
-    JRadioButton kaltOberteil;
-    JRadioButton warmOberteil;
+    JRadioButton kurzHose;
+    JRadioButton langHose;
+    JRadioButton kurzOberteil;
+    JRadioButton langOberteil;
     JRadioButton schuhe;
 
     ButtonGroup gruppeteile;
     JPanel panelGruppe;
     JComboBox groessenListe;
+    JComboBox schuhArt;
     JComboBox farbenListe;
 
 
@@ -127,22 +131,28 @@ public class Schrank extends JFrame implements ActionListener {
         this.add(farbeL);
         farbeL.setBounds(285,370,200,20);
 
+        schuhArtl = new JLabel("Schuhart wählen:");
+        this.add(schuhArtl);
+        schuhArtl.setBounds(275,420,200,20);
+
+
+
         //Radio button
-        kaltHose = new JRadioButton("Kurze Hose");
-        this.add(kaltHose);
-        kaltHose.addActionListener(this);
+        kurzHose = new JRadioButton("Kurze Hose");
+        this.add(kurzHose);
+        kurzHose.addActionListener(this);
 
-        warmHose = new JRadioButton("Lange Hose");
-        this.add(warmHose);
-        warmHose.addActionListener(this);
+        langHose = new JRadioButton("Lange Hose");
+        this.add(langHose);
+        langHose.addActionListener(this);
 
-        kaltOberteil = new JRadioButton("Kurzes Oberteil");
-        this.add(kaltOberteil);
-        kaltOberteil.addActionListener(this);
+        kurzOberteil = new JRadioButton("Kurzes Oberteil");
+        this.add(kurzOberteil);
+        kurzOberteil.addActionListener(this);
 
-        warmOberteil = new JRadioButton("Warmes Oberteil");
-        this.add(warmOberteil);
-        warmOberteil.addActionListener(this);
+        langOberteil = new JRadioButton("Langes Oberteil");
+        this.add(langOberteil);
+        langOberteil.addActionListener(this);
 
         schuhe = new JRadioButton("Schuhe");
         this.add(schuhe);
@@ -159,22 +169,27 @@ public class Schrank extends JFrame implements ActionListener {
         this.add(farbenListe);
         farbenListe.setBounds(380,370,130,20);
 
+        String schuhListe[] = {"","","",""};
+        schuhArt = new JComboBox(schuhListe);
+        this.add(schuhArt);
+        schuhArt.setBounds(380,420,130,20);
+
 
 
 
         //Group of radio buttons
         gruppeteile = new ButtonGroup();
-        gruppeteile.add(kaltHose);
-        gruppeteile.add(warmHose);
-        gruppeteile.add(kaltOberteil);
-        gruppeteile.add(warmOberteil);
+        gruppeteile.add(kurzHose);
+        gruppeteile.add(langHose);
+        gruppeteile.add(kurzOberteil);
+        gruppeteile.add(langOberteil);
         gruppeteile.add(schuhe);
 
         panelGruppe = new JPanel();
-        panelGruppe.add(kaltHose);
-        panelGruppe.add(warmHose);
-        panelGruppe.add(kaltOberteil);
-        panelGruppe.add(warmOberteil);
+        panelGruppe.add(kurzHose);
+        panelGruppe.add(langHose);
+        panelGruppe.add(kurzOberteil);
+        panelGruppe.add(langOberteil);
         panelGruppe.add(schuhe);
         this.add(panelGruppe);
         panelGruppe.setBounds(380,150,130,150);
@@ -196,10 +211,10 @@ public class Schrank extends JFrame implements ActionListener {
 
         name.setVisible(false);
 
-        kaltHose.setVisible(false);
-        warmHose.setVisible(false);
-        kaltOberteil.setVisible(false);
-        warmOberteil.setVisible(false);
+        kurzHose.setVisible(false);
+        langHose.setVisible(false);
+        kurzOberteil.setVisible(false);
+        langOberteil.setVisible(false);
         schuhe.setVisible(false);
 
 
@@ -209,6 +224,8 @@ public class Schrank extends JFrame implements ActionListener {
         groesseL.setVisible(false);
         farbenListe.setVisible(false);
         farbeL.setVisible(false);
+        schuhArt.setVisible(false);
+        schuhArtl.setVisible(false);
     }
 
     public void seite1() {
@@ -228,10 +245,10 @@ public class Schrank extends JFrame implements ActionListener {
         label2.setVisible(true);
         name.setVisible(true);
         artikelN.setVisible(true);
-        kaltHose.setVisible(true);
-        warmHose.setVisible(true);
-        kaltOberteil.setVisible(true);
-        warmOberteil.setVisible(true);
+        kurzHose.setVisible(true);
+        langHose.setVisible(true);
+        kurzOberteil.setVisible(true);
+        langOberteil.setVisible(true);
         schuhe.setVisible(true);
         panelGruppe.setVisible(true);
         allesAkzept.setVisible(true);
@@ -239,6 +256,7 @@ public class Schrank extends JFrame implements ActionListener {
         groesseL.setVisible(true);
         farbenListe.setVisible(true);
         farbeL.setVisible(true);
+
 
 
     }
@@ -286,30 +304,42 @@ public class Schrank extends JFrame implements ActionListener {
             System.out.println("button4");
         }
 
-        if(kaltOberteil.isSelected() == true) {
+        if(kurzOberteil.isSelected() == true) {
 
-            System.out.println("Kalt Oberteil");
-            art = "KO";
+            System.out.println("Kurz Oberteil");
+            langKurz = "KO";
+            schuhArt.setVisible(false);
+            schuhArtl.setVisible(false);
         }
-        if(warmOberteil.isSelected() == true) {
+        if(langOberteil.isSelected() == true) {
 
-            System.out.println("Warm Oberteil");
-            art = "WO";
+            System.out.println("Lang Oberteil");
+            langKurz = "LO";
+            schuhArt.setVisible(false);
+            schuhArtl.setVisible(false);
         }
-        if(kaltHose.isSelected() == true) {
+        if(kurzHose.isSelected() == true) {
 
-            System.out.println("Kalt Hose");
-            art = "KH";
+            System.out.println("Kurze Hose");
+            langKurz = "KH";
+            schuhArt.setVisible(false);
+            schuhArtl.setVisible(false);
         }
-        if(warmHose.isSelected() == true) {
+        if(langHose.isSelected() == true) {
 
-            System.out.println("Warm Hose");
-            art = "WH";
+            System.out.println("Lang Hose");
+            langKurz = "LH";
+            schuhArt.setVisible(false);
+            schuhArtl.setVisible(false);
         }
         if(schuhe.isSelected() == true) {
 
             System.out.println("Schuh");
             art = "SH";
+            schuhArt.setVisible(true);
+            schuhArtl.setVisible(true);
+
+
         }
         if(e.getSource()==allesAkzept) {
             name2 = artikelN.getText();
@@ -320,11 +350,27 @@ public class Schrank extends JFrame implements ActionListener {
 
             farbe = (String) farbenListe.getItemAt(farbenListe.getSelectedIndex());
             System.out.println(farbe);
+
+            schuhTyp = (String) schuhArt.getItemAt(schuhArt.getSelectedIndex());
+            System.out.println(schuhTyp);
+
+
+
         }
 
     }
 
+    public String getName2() {
+        return name2;
+    }
 
+    public String getGroesse() {
+        return groesse;
+    }
+
+    public String getFarbe() {
+        return farbe;
+    }
 }
 
 //fertig

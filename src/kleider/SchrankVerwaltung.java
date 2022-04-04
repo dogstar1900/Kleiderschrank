@@ -14,9 +14,7 @@ public class SchrankVerwaltung {
 
 
 
-
-
-    }
+}
 
 
 
