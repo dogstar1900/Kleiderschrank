@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b490e682-4c0c-4dc2-ace7-67357d12ab75" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/guiJulian/Test2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/guiJulian/Test2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/guiJulian/Test1.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/guiJulian/Test1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/guiJulian/Test2.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/guiJulian/Test2.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +123,7 @@
       <workItem from="1646737373068" duration="14835000" />
       <workItem from="1647850832025" duration="3628000" />
       <workItem from="1648463271321" duration="855000" />
-      <workItem from="1649060621216" duration="548000" />
+      <workItem from="1649060621216" duration="872000" />
     </task>
     <servers />
   </component>
