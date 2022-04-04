@@ -7,7 +7,7 @@ public class SchrankVerwaltung {
 
     public static void main(String[] args) throws SQLException {
        new Schrank();
-       new DatenbankAnbindung();
+      // new DatenbankAnbindung();
 
     }
 
