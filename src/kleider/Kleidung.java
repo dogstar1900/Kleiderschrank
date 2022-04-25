@@ -4,13 +4,13 @@ public abstract class Kleidung {
 
     private String name;
     private String farbe;
-    private String groesse;
 
-    public Kleidung(String name,String farbe,String groesse){
+
+    public Kleidung(String name,String farbe){
 
         this.name = name;
         this.farbe = farbe;
-        this.groesse = groesse;
+
 
     }
 
@@ -22,7 +22,5 @@ public abstract class Kleidung {
         return farbe;
     }
 
-    public String getGroesse() {
-        return groesse;
-    }
+
 }
