@@ -5,7 +5,7 @@ public class Oberteil extends Kleidung{
     private String art;
     private String groesse;
 
-    public Oberteil(String name,String farbe,String art,String groess){
+    public Oberteil(String name,String farbe,String art,String groesse){
         super(name,farbe);
         this.art = art;
         this.groesse = groesse;

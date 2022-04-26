@@ -7,12 +7,15 @@ public class SchrankVerwaltung {
 
     public static void main(String[] args) throws SQLException {
        new Schrank();
-       new DatenbankAnbindung();
+
+       DatenbankAnbindung db1 = new DatenbankAnbindung();
+       db1.datenbankErstellen();
 
     }
 
+    public static void hinzufügenOberteil() {
 
-
+    }
 
 }
 
