@@ -36,9 +36,9 @@ public class DatenbankAnbindung {
         try {
             stm.executeUpdate("CREATE DATABASE IF NOT EXISTS kleiderschrank");
             stm.executeUpdate("use kleiderschrank");
-            stm.executeUpdate("CREATE TABLE Hose (name varchar(255), farbe varchar(255), art varchar(255), groesse varchar(255));");
-            stm.executeUpdate("CREATE TABLE Schuhe (name varchar(255), farbe varchar(255), art varchar(255), groesse varchar(255));");
-            stm.executeUpdate("CREATE TABLE Oberteil (name varchar(255), farbe varchar(255), art varchar(255), groesse varchar(255));");
+            stm.executeUpdate("CREATE TABLE IF NOT EXISTS Hose  (name varchar(255), farbe varchar(255), art varchar(255), groesse varchar(255));");
+            stm.executeUpdate("CREATE TABLE IF NOT EXISTS Schuhe  (name varchar(255), farbe varchar(255), art varchar(255), groesse varchar(255));");
+            stm.executeUpdate("CREATE TABLE IF NOT EXISTS Oberteil  (name varchar(255), farbe varchar(255), art varchar(255), groesse varchar(255));");
 
 
 
@@ -47,7 +47,6 @@ public class DatenbankAnbindung {
     public void sendSqlBefehl(String sqlBefehl) throws SQLException{
 
         this.sqlBefehl = sqlBefehl;
-
         Statement stm = conn.createStatement();
         System.out.println(sqlBefehl);
         stm.executeUpdate(sqlBefehl);
@@ -58,7 +57,7 @@ public class DatenbankAnbindung {
 
     public void auslesenSchuhe(){
         try {
-            String abfrage = "SELECT * FROM schuhe";
+            String abfrage = "SELECT * FROM Schuhe";
             Statement stm = conn.createStatement();
             ResultSet rs = stm.executeQuery(abfrage);
             while(rs.next()) {
@@ -73,7 +72,21 @@ public class DatenbankAnbindung {
     }
     public void auslesenOberteil(){
         try {
-            String abfrage = "SELECT * FROM oberteil";
+            String abfrage = "SELECT * FROM Oberteil";
+            Statement stm = conn.createStatement();
+            ResultSet rs = stm.executeQuery(abfrage);
+            while(rs.next()) {
+                System.out.println(rs.getString(1) + " " + rs.getString(2)
+                        + " " + rs.getString(3)+ " " +
+                        rs.getString(4));
+            }
+        } catch (SQLException e ){
+            e.printStackTrace();
+        }
+    }
+    public void auslesenHose(){
+        try {
+            String abfrage = "SELECT * FROM Hose";
             Statement stm = conn.createStatement();
             ResultSet rs = stm.executeQuery(abfrage);
             while(rs.next()) {
@@ -88,7 +101,7 @@ public class DatenbankAnbindung {
     public void einfuegenHose(String name, String farbe, String art, String groesse){
         try {
             String einfuegen =
-                    "INSERT INTO hose(name, farbe, art, groesse) VALUES (" + name + ",'" + farbe + "', '" + art + "', " + groesse + ");";
+                    "INSERT INTO Hose(name, farbe, art, groesse) VALUES ('" + name + "','" + farbe + "', '" + art + "','" + groesse + "');";
             Statement stm = conn.createStatement();
             stm.execute(einfuegen);
         } catch (SQLException e) {
@@ -98,7 +111,7 @@ public class DatenbankAnbindung {
     public void einfuegenSchuhe(String name, String farbe, String art, String groesse){
         try {
             String einfuegen =
-                    "INSERT INTO schuhe(name, farbe, art, groesse) VALUES (" + name + ",'" + farbe + "', '" + art + "', " + groesse + ");";
+                    "INSERT INTO Schuhe(name, farbe, art, groesse) VALUES ('"+name+"','"+farbe+"','"+art+"','"+groesse+"');";
             Statement stm = conn.createStatement();
             stm.execute(einfuegen);
         } catch (SQLException e) {
@@ -108,7 +121,7 @@ public class DatenbankAnbindung {
     public void einfuegenOberteil(String name, String farbe, String art, String groesse){
         try {
             String einfuegen =
-                    "INSERT INTO oberteil(name, farbe, art, groesse) VALUES (" + name + ",'" + farbe + "', '" + art + "', " + groesse + ");";
+                    "INSERT INTO Oberteil(name, farbe, art, groesse) VALUES ('" + name + "','" + farbe + "', '" + art + "','" + groesse + "');";
             Statement stm = conn.createStatement();
             stm.execute(einfuegen);
         } catch (SQLException e) {
@@ -117,16 +130,16 @@ public class DatenbankAnbindung {
     }
     public void loeschenHose(String name, String farbe, String art, String groesse) {
         try {
-            String loeschen = "DELETE FROM hose WHERE name = " + name + ";";
+            String loeschen = "DELETE FROM Hose WHERE name = '" + name + "';";
             Statement stm = conn.createStatement();
             stm.execute(loeschen);
         }catch (SQLException e) {
             e.printStackTrace();
         }
     }
-    public void loeschenSchuhe(String name, String farbe, String art, String groesse) {
+    public void loeschenSchuhe(String name,String farbe,String art,String groesse) {
         try {
-            String loeschen = "DELETE FROM Schuhe WHERE name = " + name + ";";
+            String loeschen = "DELETE FROM Schuhe WHERE name = '" + name + "';";
             Statement stm = conn.createStatement();
             stm.execute(loeschen);
         }catch (SQLException e) {
@@ -134,7 +147,7 @@ public class DatenbankAnbindung {
         }
     }public void loeschenOberteil(String name, String farbe, String art, String groesse) {
         try {
-            String loeschen = "DELETE FROM oberteil WHERE name = " + name + ";";
+            String loeschen = "DELETE FROM Oberteil WHERE name = '" + name + "';";
             Statement stm = conn.createStatement();
             stm.execute(loeschen);
         }catch (SQLException e) {

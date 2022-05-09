@@ -8,7 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Kleiderschrank/kleider/DatenbankAnbindung.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Kleiderschrank/kleider/DatenbankAnbindung.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/kleider/DatenbankAnbindung.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kleider/DatenbankAnbindung.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kleider/Oberteil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kleider/Oberteil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/kleider/SchrankVerwaltung.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kleider/SchrankVerwaltung.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -124,7 +123,7 @@
       <workItem from="1646737373068" duration="14835000" />
       <workItem from="1647850832025" duration="3628000" />
       <workItem from="1648463271321" duration="855000" />
-      <workItem from="1649060621216" duration="10078000" />
+      <workItem from="1649060621216" duration="16149000" />
     </task>
     <servers />
   </component>
