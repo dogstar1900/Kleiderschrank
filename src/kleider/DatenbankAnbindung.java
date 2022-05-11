@@ -139,7 +139,7 @@ public class DatenbankAnbindung {
         }
     }
 
-    public void loeschenHose(String name, String farbe, String art, String groesse) {
+    public void loeschenHose(String name,  String art, String groesse) {
         try {
             String loeschen = "DELETE FROM Hose WHERE name = '" + name + "';";
             Statement stm = conn.createStatement();
@@ -149,7 +149,7 @@ public class DatenbankAnbindung {
         }
     }
 
-    public void loeschenSchuhe(String name, String farbe, String art, String groesse) {
+    public void loeschenSchuhe(String name, String art, String groesse) {
         try {
             String loeschen = "DELETE FROM Schuhe WHERE name = '" + name + "';";
             Statement stm = conn.createStatement();
@@ -159,7 +159,7 @@ public class DatenbankAnbindung {
         }
     }
 
-    public void loeschenOberteil(String name, String farbe, String art, String groesse) {
+    public void loeschenOberteil(String name, String art, String groesse) {
         try {
             String loeschen = "DELETE FROM Oberteil WHERE name = '" + name + "';";
             Statement stm = conn.createStatement();
@@ -352,6 +352,54 @@ public class DatenbankAnbindung {
                     e.printStackTrace();
                 }
                 break;
+            case 12:
+                farb = "hellgrün";
+                try {
+                    String abfrage = "SELECT * FROM Oberteil WHERE farbe LIKE 'hellgrün'";
+                    Statement stm = conn.createStatement();
+                    ResultSet rs = stm.executeQuery(abfrage);
+                    while (rs.next()) {
+                        System.out.println(rs.getString(1) + " " +
+                                rs.getString(2) + " " +
+                                rs.getString(3) + " " +
+                                rs.getString(4));
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                break;
+            case 13:
+                farb = "pink";
+                try {
+                    String abfrage = "SELECT * FROM Oberteil WHERE farbe LIKE 'pink'";
+                    Statement stm = conn.createStatement();
+                    ResultSet rs = stm.executeQuery(abfrage);
+                    while (rs.next()) {
+                        System.out.println(rs.getString(1) + " " +
+                                rs.getString(2) + " " +
+                                rs.getString(3) + " " +
+                                rs.getString(4));
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                break;
+            case 14:
+                farb = "Lila";
+                try {
+                    String abfrage = "SELECT * FROM Oberteil WHERE farbe LIKE 'lila'";
+                    Statement stm = conn.createStatement();
+                    ResultSet rs = stm.executeQuery(abfrage);
+                    while (rs.next()) {
+                        System.out.println(rs.getString(1) + " " +
+                                rs.getString(2) + " " +
+                                rs.getString(3) + " " +
+                                rs.getString(4));
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                break;
 
         }
     }
@@ -369,11 +417,11 @@ public class DatenbankAnbindung {
             ResultSet rs = stm.executeQuery(abfrage);
 
             while (rs.next()) {
-                m = rs.getString(1) + "," +
-                        rs.getString(2) + "," +
-                        rs.getString(3) + "," +
+                m = rs.getString(1) + ", " +
+                        rs.getString(2) + ", " +
+                        rs.getString(3) + ", " +
                         rs.getString(4);
-                c=c+"   "+m;
+                c=c+"\n   "+m;
             }
 
             System.out.println(m);
@@ -387,11 +435,11 @@ public class DatenbankAnbindung {
             ResultSet rs = stm.executeQuery(abfrage);
 
             while (rs.next()) {
-                n = rs.getString(1) + "," +
-                        rs.getString(2) + "," +
-                        rs.getString(3) + "," +
+                n = rs.getString(1) + ", " +
+                        rs.getString(2) + ", " +
+                        rs.getString(3) + ", " +
                         rs.getString(4);
-                a=a+"   "+n;
+                a=a+"\n   "+n;
             }
 
             System.out.println(n);
@@ -405,11 +453,11 @@ public class DatenbankAnbindung {
             ResultSet rs = stm.executeQuery(abfrage);
 
             while (rs.next()) {
-                o = rs.getString(1) + "," +
-                        rs.getString(2) + "," +
-                        rs.getString(3) + "," +
+                o = rs.getString(1) + ", " +
+                        rs.getString(2) + ", " +
+                        rs.getString(3) + ", " +
                         rs.getString(4);
-                b=b+"   "+o;
+                b=b+"\n   "+o;
             }
 
             System.out.println(o);
@@ -418,19 +466,26 @@ public class DatenbankAnbindung {
 
         }
 
-        return ""+c+"\n "+a+"\n "+"\n "+b+"\n";
+        return ""+c+" "+a+" "+b+"";
+    }
+
+    public void tabellenLeeren(){
+        try {
+            String loeschenH = "DELETE FROM Hose;";
+            Statement stm = conn.createStatement();
+            stm.execute(loeschenH);
+
+            String loeschenO = "DELETE FROM Oberteil;";
+            stm = conn.createStatement();
+            stm.execute(loeschenO);
+
+            String loeschenS = "DELETE FROM Schuhe;";
+            stm = conn.createStatement();
+            stm.execute(loeschenS);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
