@@ -157,7 +157,7 @@ public class Schrank extends JFrame implements ActionListener {
 
         angezeigteKleidung=new JTextArea("");
         this.add(angezeigteKleidung);
-        angezeigteKleidung.setBounds(300,100,300,600);
+        angezeigteKleidung.setBounds(300,100,300,450);
         //angezeigteKleidung.setBackground(Color.black);
 
         angezeigteKleidungLoeschen=new JTextArea("");
@@ -247,10 +247,6 @@ public class Schrank extends JFrame implements ActionListener {
         schuhArt = new JComboBox(schuhListe);
         this.add(schuhArt);
         schuhArt.setBounds(380,420,150,20);
-
-
-
-
 
 
         //Group of radio buttons
@@ -384,7 +380,7 @@ public class Schrank extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==button1) {
-
+            schuhArt.setVisible(false);
             allesWeg();
             seite1();
 
@@ -417,6 +413,7 @@ public class Schrank extends JFrame implements ActionListener {
         if(e.getSource()==button3) {
             angezeigteKleidung.setVisible(false);
             allesWeg();
+            schuhArt.setVisible(false);
             seite3();
             System.out.println("button3");
 
@@ -447,6 +444,7 @@ public class Schrank extends JFrame implements ActionListener {
         if(e.getSource()==button4) {
             angezeigteKleidungLoeschen.setVisible(false);
             angezeigteKleidung.setVisible(false);
+            schuhArt.setVisible(false);
             allesWeg();
             seite4();
             System.out.println("button4");
@@ -597,7 +595,7 @@ public class Schrank extends JFrame implements ActionListener {
                 DatenbankAnbindung db2 = new DatenbankAnbindung();
                 db2.datenbankNutzen();
                 db2.tabellenLeeren();
-                
+
                 String test2="";
                 test2 = db2.ausgebenOutfit();
                 angezeigteKleidungLoeschen.setText(test2);
@@ -609,7 +607,7 @@ public class Schrank extends JFrame implements ActionListener {
         }
         if(e.getSource()==allesAkzept) {
 
-
+            gruppeteile.clearSelection();
 
             name2 = artikelN.getText();
             artikelN.setText("");
@@ -683,11 +681,7 @@ public class Schrank extends JFrame implements ActionListener {
                         break;
                 }
 
-
-
-
         }
-
 
     }
 
