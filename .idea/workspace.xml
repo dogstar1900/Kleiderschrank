@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Kleiderschrank:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
@@ -7,7 +12,9 @@
     <list default="true" id="b490e682-4c0c-4dc2-ace7-67357d12ab75" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Kleiderschrank/kleider/DatenbankAnbindung.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Kleiderschrank/kleider/DatenbankAnbindung.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Kleiderschrank/kleider/Schrank.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Kleiderschrank/kleider/Schrank.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/kleider/DatenbankAnbindung.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kleider/DatenbankAnbindung.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kleider/Schrank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kleider/Schrank.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/kleider/SchrankVerwaltung.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kleider/SchrankVerwaltung.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,7 +64,7 @@
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
@@ -123,7 +130,10 @@
       <workItem from="1646737373068" duration="14835000" />
       <workItem from="1647850832025" duration="3628000" />
       <workItem from="1648463271321" duration="855000" />
-      <workItem from="1649060621216" duration="16149000" />
+      <workItem from="1649060621216" duration="37160000" />
+      <workItem from="1652256419490" duration="26395000" />
+      <workItem from="1653899618948" duration="2971000" />
+      <workItem from="1654585834563" duration="23165000" />
     </task>
     <servers />
   </component>
@@ -159,7 +169,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/guiJulian/Test1.java</url>
           <line>11</line>
-          <properties class="guiJulian.Test1" method="&lt;init&gt;">
+          <properties class="guiJulian.Test1">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>

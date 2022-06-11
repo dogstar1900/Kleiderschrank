@@ -23,18 +23,26 @@ import javax.swing.*;
 
 public class Schrank extends JFrame implements ActionListener {
 
-    String test ="";
+   String test="";
+    String testS = "", testH = "", testO = "";
+
+    //String test2S="",test2H="",test2O="";
+
     String name2="";
     String groesse="";
     String farbe="";
     String art="";
     String langKurz="";
     String schuhTyp="";
+    int sID=0,hID=0,oID=0;
+
+
 
     JTextField artikelN;
     JTextField loeschenName;
     JTextField loeschenGroesse;
     JTextField loeschenFarbe;
+    JTextField loeschenID;
     JTextField loeschenArt;
 
     JButton button1;
@@ -53,13 +61,17 @@ public class Schrank extends JFrame implements ActionListener {
     JLabel groesseL;
     JLabel farbeL;
     JLabel schuhArtl;
-    JTextArea angezeigteKleidung;
-    JTextArea angezeigteKleidungLoeschen;
-    JLabel loeschenFarbeText;
-    JLabel loeschenGroesseText;
-    JLabel loeschenNameText;
-    JLabel loeschenArtText;
 
+    JTextArea angezeigteKleidungS;
+    JTextArea angezeigteKleidungH;
+    JTextArea angezeigteKleidungO;
+
+    JTextArea angezeigteKleidungLoeschenS;
+    JTextArea angezeigteKleidungLoeschenH;
+    JTextArea angezeigteKleidungLoeschenO;
+
+    JLabel loeschenArtText;
+    JLabel loeschenIDText;
 
     JLabel name;
 
@@ -92,21 +104,13 @@ public class Schrank extends JFrame implements ActionListener {
         this.add(artikelN);
         artikelN.setBounds(380,110,130,20);
 
-        loeschenName = new JTextField();
-        this.add(loeschenName);
-        loeschenName.setBounds(290,110,130,20);
-
-        loeschenGroesse = new JTextField();
-        this.add(loeschenGroesse);
-        loeschenGroesse.setBounds(715,110,130,20);
-
-        loeschenFarbe = new JTextField();
-        this.add(loeschenFarbe);
-        loeschenFarbe.setBounds(490,110,130,20);
-
         loeschenArt = new JTextField();
         this.add(loeschenArt);
         loeschenArt.setBounds(70,110,130,20);
+
+        loeschenID = new JTextField();
+        this.add(loeschenID);
+        loeschenID.setBounds(270,110,130,20);
 
 
 
@@ -155,14 +159,30 @@ public class Schrank extends JFrame implements ActionListener {
 
         klamotteAnzeigen = new JLabel("");
 
-        angezeigteKleidung=new JTextArea("");
-        this.add(angezeigteKleidung);
-        angezeigteKleidung.setBounds(300,100,300,450);
+        angezeigteKleidungS=new JTextArea("");
+        this.add(angezeigteKleidungS);
+        angezeigteKleidungS.setBounds(10,100,280,450);
+
+        angezeigteKleidungH=new JTextArea("");
+        this.add(angezeigteKleidungH);
+        angezeigteKleidungH.setBounds(310,100,280,450);
+
+        angezeigteKleidungO=new JTextArea("");
+        this.add(angezeigteKleidungO);
+        angezeigteKleidungO.setBounds(610,100,280,450);
         //angezeigteKleidung.setBackground(Color.black);
 
-        angezeigteKleidungLoeschen=new JTextArea("");
-        this.add(angezeigteKleidungLoeschen);
-        angezeigteKleidungLoeschen.setBounds(300,150,300,350);
+        angezeigteKleidungLoeschenS = new JTextArea("");
+        this.add(angezeigteKleidungLoeschenS);
+        angezeigteKleidungLoeschenS.setBounds(10,150,280,350);
+
+        angezeigteKleidungLoeschenH=new JTextArea("");
+        this.add(angezeigteKleidungLoeschenH);
+        angezeigteKleidungLoeschenH.setBounds(310,150,280,350);
+
+        angezeigteKleidungLoeschenO=new JTextArea("");
+        this.add(angezeigteKleidungLoeschenO);
+        angezeigteKleidungLoeschenO.setBounds(610,150,280,350);
 
 
         label2 = new JLabel("Kleidung hinzufügen");
@@ -195,21 +215,17 @@ public class Schrank extends JFrame implements ActionListener {
         this.add(schuhArtl);
         schuhArtl.setBounds(275,420,200,20);
 
-        loeschenFarbeText = new JLabel("Farbe:");
-        this.add(loeschenFarbeText);
-        loeschenFarbeText.setBounds(450,110,200,20);
 
-        loeschenGroesseText = new JLabel("Größe:");
-        this.add(loeschenGroesseText);
-        loeschenGroesseText.setBounds(675,110,200,20);
-
-        loeschenNameText = new JLabel("Name:");
-        this.add(loeschenNameText);
-        loeschenNameText.setBounds(255,110,200,20);
 
         loeschenArtText = new JLabel("Art:");
         this.add(loeschenArtText);
         loeschenArtText.setBounds(50,110,200,20);
+
+        loeschenIDText = new JLabel("ID:");
+        this.add(loeschenIDText);
+        loeschenIDText.setBounds(250,110,200,20);
+
+
 
 
         //Radio button
@@ -238,7 +254,7 @@ public class Schrank extends JFrame implements ActionListener {
         this.add(groessenListe);
         groessenListe.setBounds(380,320,150,20);
 
-        String farbListe[] = {"Farben:","Weiß","Beige","Grün","Hellgrün","Hellblau","Blau","Gelb","Orange","Rot","Pink","Lila","Grau","Schwarz","Braun"};
+        String farbListe[] = {"Farben:","Weiss","Beige","Gruen","Hellgruen","Hellblau","Blau","Gelb","Orange","Rot","Pink","Lila","Grau","Schwarz","Braun"};
         farbenListe = new JComboBox(farbListe);
         this.add(farbenListe);
         farbenListe.setBounds(380,370,150,20);
@@ -287,15 +303,11 @@ public class Schrank extends JFrame implements ActionListener {
 
         name.setVisible(false);
 
-        loeschenFarbe.setVisible(false);
-        loeschenGroesse.setVisible(false);
-        loeschenName.setVisible(false);
-        loeschenNameText.setVisible(false);
-        loeschenGroesseText.setVisible(false);
-        loeschenFarbeText.setVisible(false);
-
         loeschenArtText.setVisible(false);
         loeschenArt.setVisible(false);
+
+        loeschenIDText.setVisible(false);
+        loeschenID.setVisible(false);
 
         kurzHose.setVisible(false);
         langHose.setVisible(false);
@@ -312,6 +324,7 @@ public class Schrank extends JFrame implements ActionListener {
         farbeL.setVisible(false);
         schuhArt.setVisible(false);
         schuhArtl.setVisible(false);
+
     }
 
     public void seite1() {
@@ -344,9 +357,6 @@ public class Schrank extends JFrame implements ActionListener {
         farbenListe.setVisible(true);
         farbeL.setVisible(true);
 
-
-
-
     }
 
     public void seite3() {
@@ -355,16 +365,15 @@ public class Schrank extends JFrame implements ActionListener {
         button3.setVisible(true);
         button4.setVisible(true);
         label3.setVisible(true);
-        loeschenFarbe.setVisible(true);
-        loeschenGroesse.setVisible(true);
-        loeschenName.setVisible(true);
-        loeschenNameText.setVisible(true);
-        loeschenGroesseText.setVisible(true);
-        loeschenFarbeText.setVisible(true);
+
+
         selectLoeschen.setVisible(true);
         allesLoeschen.setVisible(true);
         loeschenArt.setVisible(true);
         loeschenArtText.setVisible(true);
+
+        loeschenIDText.setVisible(true);
+        loeschenID.setVisible(true);
     }
 
     public void seite4() {
@@ -387,45 +396,96 @@ public class Schrank extends JFrame implements ActionListener {
             System.out.println("button1");
 
             try {
-                angezeigteKleidungLoeschen.setVisible(false);
+                angezeigteKleidungLoeschenS.setVisible(false);
+                angezeigteKleidungLoeschenH.setVisible(false);
+                angezeigteKleidungLoeschenO.setVisible(false);
+
                 DatenbankAnbindung db2 = new DatenbankAnbindung();
                 db2.datenbankNutzen();
                 db2.ausgebenOutfit();
-                test = db2.ausgebenOutfit();
-                angezeigteKleidung.setVisible(true);
+
+                testS = db2.ausgebenOutfitS();
+                testH = db2.ausgebenOutfitH();
+                testO = db2.ausgebenOutfitO();
+
+                angezeigteKleidungH.setVisible(true);
+                angezeigteKleidungS.setVisible(true);
+                angezeigteKleidungO.setVisible(true);
                 //angezeigteKleidung.setBackground(Color.black);
 
-                angezeigteKleidung.setText(test);
+                angezeigteKleidungS.setText(testS);
+                angezeigteKleidungH.setText(testH);
+                angezeigteKleidungO.setText(testO);
 
-                        System.out.println(test);
+                System.out.println(test);
 
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
         }
         if(e.getSource()==button2) {
-            angezeigteKleidungLoeschen.setVisible(false);
-            angezeigteKleidung.setVisible(false);
+            angezeigteKleidungLoeschenH.setVisible(false);
+            angezeigteKleidungLoeschenS.setVisible(false);
+            angezeigteKleidungLoeschenO.setVisible(false);
+
+            angezeigteKleidungH.setVisible(false);
+            angezeigteKleidungS.setVisible(false);
+            angezeigteKleidungO.setVisible(false);
+
             allesWeg();
             seite2();
             System.out.println("button2");
         }
         if(e.getSource()==button3) {
-            angezeigteKleidung.setVisible(false);
-            allesWeg();
-            schuhArt.setVisible(false);
-            seite3();
-            System.out.println("button3");
+            try {
+                allesWeg();
+                schuhArt.setVisible(false);
+                seite3();
+                System.out.println("button3");
+
+                angezeigteKleidungS.setVisible(false);
+                angezeigteKleidungH.setVisible(false);
+                angezeigteKleidungO.setVisible(false);
+
+                DatenbankAnbindung db2 = new DatenbankAnbindung();
+                db2.datenbankNutzen();
+                db2.ausgebenOutfit();
+
+                testS = db2.ausgebenOutfitS();
+                testH = db2.ausgebenOutfitH();
+                testO = db2.ausgebenOutfitO();
+
+                angezeigteKleidungLoeschenS.setVisible(true);
+                angezeigteKleidungLoeschenH.setVisible(true);
+                angezeigteKleidungLoeschenO.setVisible(true);
+
+                //angezeigteKleidung.setBackground(Color.black);
+
+                angezeigteKleidungS.setText(testS);
+                angezeigteKleidungH.setText(testH);
+                angezeigteKleidungO.setText(testO);
+
+                System.out.println(test);
+
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+
+
 
             try {
                 DatenbankAnbindung db2 = new DatenbankAnbindung();
                 db2.datenbankNutzen();
                 db2.ausgebenOutfit();
                 test = db2.ausgebenOutfit();
-                angezeigteKleidungLoeschen.setVisible(true);
+                angezeigteKleidungLoeschenS.setVisible(true);
+                angezeigteKleidungLoeschenO.setVisible(true);
+                angezeigteKleidungLoeschenH.setVisible(true);
                 //angezeigteKleidung.setBackground(Color.black);
 
-                angezeigteKleidungLoeschen.setText(test);
+                angezeigteKleidungLoeschenS.setText(testS);
+                angezeigteKleidungLoeschenH.setText(testH);
+                angezeigteKleidungLoeschenO.setText(testO);
 
                 System.out.println(test);
 
@@ -435,15 +495,23 @@ public class Schrank extends JFrame implements ActionListener {
 
             //angezeigteKleidung.setBackground(Color.black);
 
-            angezeigteKleidung.setText(test);
+            angezeigteKleidungS.setText(testS);
+            angezeigteKleidungO.setText(testO);
+            angezeigteKleidungH.setText(testH);
 
             System.out.println(test);
 
 
         }
         if(e.getSource()==button4) {
-            angezeigteKleidungLoeschen.setVisible(false);
-            angezeigteKleidung.setVisible(false);
+            angezeigteKleidungLoeschenS.setVisible(false);
+            angezeigteKleidungLoeschenH.setVisible(false);
+            angezeigteKleidungLoeschenO.setVisible(false);
+
+            angezeigteKleidungS.setVisible(false);
+            angezeigteKleidungO.setVisible(false);
+            angezeigteKleidungH.setVisible(false);
+
             schuhArt.setVisible(false);
             allesWeg();
             seite4();
@@ -482,9 +550,9 @@ public class Schrank extends JFrame implements ActionListener {
         if(schuhe.isSelected() == true) {
 
             System.out.println("Schuh");
-            art = "SH";
-            schuhArt.setVisible(true);
-            schuhArtl.setVisible(true);
+            langKurz = "SH";
+            schuhArt.setVisible(false);
+            schuhArtl.setVisible(false);
 
 
         }
@@ -495,53 +563,56 @@ public class Schrank extends JFrame implements ActionListener {
                 case "Kurze Hose":
                     System.out.println("M");
                     String la = loeschenArt.getText();
-                    String ln = loeschenName.getText();
-                    String lg = loeschenGroesse.getText();
+                    String strID = loeschenID.getText();
+                    int li = Integer.parseInt(strID);
                     try {
                         DatenbankAnbindung db2 = new DatenbankAnbindung();
                         db2.datenbankNutzen();
-                        db2.loeschenHose(ln,la,lg);
-                        String test2="";
-                        test2 = db2.ausgebenOutfit();
-                        angezeigteKleidungLoeschen.setText(test2);
+                        db2.loeschenHose(la,li);
+
+                       String test2H="";
+                        test2H = db2.ausgebenOutfitH();
+                        angezeigteKleidungLoeschenH.setText(test2H);
+
                     } catch (SQLException ex) {
                         ex.printStackTrace();
                     }
-                    System.out.println(ln+""+la+""+lg);
+                    //System.out.println(ln+""+la+""+lg);
 
                     break;
                 case "Lange Hose":
                     System.out.println("M");
-                     la = loeschenArt.getText();
-                     ln = loeschenName.getText();
-                     lg = loeschenGroesse.getText();
+                    la = loeschenArt.getText();
+                    strID = loeschenID.getText();
+                    li = Integer.parseInt(strID);
+
                     try {
                         DatenbankAnbindung db2 = new DatenbankAnbindung();
                         db2.datenbankNutzen();
-                        db2.loeschenHose(ln,la,lg);
+                        db2.loeschenHose(la,li);
 
-                        String test2="";
-                        test2 = db2.ausgebenOutfit();
-                        angezeigteKleidungLoeschen.setText(test2);
+                        String test2H="";
+                        test2H = db2.ausgebenOutfitH();
+                        angezeigteKleidungLoeschenH.setText(test2H);
                     } catch (SQLException ex) {
                         ex.printStackTrace();
                     }
-                    System.out.println(ln+""+la+""+lg);
+                    //System.out.println(ln+""+la+""+lg);
                     break;
                 case "Kurzes Oberteil":
                     try {
                         la = loeschenArt.getText();
-                        ln = loeschenName.getText();
-                        lg = loeschenGroesse.getText();
+                        strID = loeschenID.getText();
+                        li = Integer.parseInt(strID);
 
                         DatenbankAnbindung db2 = new DatenbankAnbindung();
                         db2.datenbankNutzen();
-                        db2.loeschenOberteil(ln,la,lg);
-                        System.out.println(ln+""+la+""+lg);
+                        db2.loeschenOberteil(la,li);
+                        //System.out.println(ln+""+la+""+lg);
 
-                        String test2="";
-                        test2 = db2.ausgebenOutfit();
-                        angezeigteKleidungLoeschen.setText(test2);
+                        String test2O="";
+                        test2O = db2.ausgebenOutfitO();
+                        angezeigteKleidungLoeschenO.setText(test2O);
                     } catch (SQLException ex) {
                         ex.printStackTrace();
                     }
@@ -549,17 +620,17 @@ public class Schrank extends JFrame implements ActionListener {
                 case "Langes Oberteil":
                     try {
                         la = loeschenArt.getText();
-                        ln = loeschenName.getText();
-                        lg = loeschenGroesse.getText();
+                        strID = loeschenID.getText();
+                        li = Integer.parseInt(strID);
 
                         DatenbankAnbindung db2 = new DatenbankAnbindung();
                         db2.datenbankNutzen();
-                        db2.loeschenOberteil(ln,la,lg);
-                        System.out.println(ln+""+la+""+lg);
+                        db2.loeschenOberteil(la,li);
+                        //System.out.println(ln+""+la+""+lg);
 
-                        String test2="";
-                        test2 = db2.ausgebenOutfit();
-                        angezeigteKleidungLoeschen.setText(test2);
+                        String test2O="";
+                        test2O = db2.ausgebenOutfitO();
+                        angezeigteKleidungLoeschenO.setText(test2O);
                     } catch (SQLException ex) {
                         ex.printStackTrace();
                     }
@@ -567,28 +638,26 @@ public class Schrank extends JFrame implements ActionListener {
                 case "Schuh":
                     try {
                         la = loeschenArt.getText();
-                        ln = loeschenName.getText();
-                        lg = loeschenGroesse.getText();
+                        strID = loeschenID.getText();
+                        li = Integer.parseInt(strID);
 
                         DatenbankAnbindung db2 = new DatenbankAnbindung();
                         db2.datenbankNutzen();
-                        db2.loeschenSchuhe(ln,la,lg);
-                        System.out.println(ln+""+la+""+lg);
+                        db2.loeschenSchuhe(la,li);
+                        //System.out.println(ln+""+la+""+lg);
 
-                        String test2="";
-                        test2 = db2.ausgebenOutfit();
-                        angezeigteKleidungLoeschen.setText(test2);
+                        String test2S="";
+                        test2S = db2.ausgebenOutfitS();
+                        angezeigteKleidungLoeschenS.setText(test2S);
                     } catch (SQLException ex) {
                         ex.printStackTrace();
                     }
                     break;
 
             }
-
+            loeschenID.setText("");
             loeschenArt.setText("");
-            loeschenGroesse.setText("");
-            loeschenName.setText("");
-            loeschenFarbe.setText("");
+
         }
         if(e.getSource()==allesLoeschen){
             try {
@@ -596,9 +665,17 @@ public class Schrank extends JFrame implements ActionListener {
                 db2.datenbankNutzen();
                 db2.tabellenLeeren();
 
-                String test2="";
-                test2 = db2.ausgebenOutfit();
-                angezeigteKleidungLoeschen.setText(test2);
+                String test2S="";
+                String test2H="";
+                String test2O="";
+
+                test2S = db2.ausgebenOutfit();
+                angezeigteKleidungLoeschenS.setText(test2S);
+                test2H = db2.ausgebenOutfit();
+                angezeigteKleidungLoeschenH.setText(test2H);
+                test2O = db2.ausgebenOutfit();
+                angezeigteKleidungLoeschenO.setText(test2O);
+
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
@@ -623,63 +700,63 @@ public class Schrank extends JFrame implements ActionListener {
             System.out.println(schuhTyp);
 
 
-                switch(langKurz){
-                    case "KO":
-                        try {
-                            langKurz = "Kurzes Oberteil";
-                            DatenbankAnbindung db2 = new DatenbankAnbindung();
-                            db2.datenbankNutzen();
-                            db2.einfuegenOberteil(name2,farbe,langKurz,groesse);
+            switch(langKurz){
+                case "KO":
+                    try {
+                        langKurz = "Kurzes Oberteil";
+                        DatenbankAnbindung db2 = new DatenbankAnbindung();
+                        db2.datenbankNutzen();
+                        db2.einfuegenOberteil(name2,farbe,langKurz,groesse);
 
-                        } catch (SQLException ex) {
-                            ex.printStackTrace();
-                        }
-                        break;
-                    case "LO":
-                        try {
-                            langKurz = "Langes Oberteil";
-                            DatenbankAnbindung db2 = new DatenbankAnbindung();
-                            db2.datenbankNutzen();
-                            db2.einfuegenOberteil(name2,farbe,langKurz,groesse);
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
+                    }
+                    break;
+                case "LO":
+                    try {
+                        langKurz = "Langes Oberteil";
+                        DatenbankAnbindung db2 = new DatenbankAnbindung();
+                        db2.datenbankNutzen();
+                        db2.einfuegenOberteil(name2,farbe,langKurz,groesse);
 
-                        } catch (SQLException ex) {
-                            ex.printStackTrace();
-                        }
-                        break;
-                    case "KH":
-                        try {
-                            langKurz = "Kurze Hose";
-                            DatenbankAnbindung db2 = new DatenbankAnbindung();
-                            db2.datenbankNutzen();
-                            db2.einfuegenHose(name2,farbe,langKurz,groesse);
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
+                    }
+                    break;
+                case "KH":
+                    try {
+                        langKurz = "Kurze Hose";
+                        DatenbankAnbindung db2 = new DatenbankAnbindung();
+                        db2.datenbankNutzen();
+                        db2.einfuegenHose(name2,farbe,langKurz,groesse);
 
-                        } catch (SQLException ex) {
-                            ex.printStackTrace();
-                        }
-                        break;
-                    case "LH":
-                        try {
-                            langKurz = "Lange Hose";
-                            DatenbankAnbindung db2 = new DatenbankAnbindung();
-                            db2.datenbankNutzen();
-                            db2.einfuegenHose(name2,farbe,langKurz,groesse);
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
+                    }
+                    break;
+                case "LH":
+                    try {
+                        langKurz = "Lange Hose";
+                        DatenbankAnbindung db2 = new DatenbankAnbindung();
+                        db2.datenbankNutzen();
+                        db2.einfuegenHose(name2,farbe,langKurz,groesse);
 
-                        } catch (SQLException ex) {
-                            ex.printStackTrace();
-                        }
-                        break;
-                    case "SH":
-                        try {
-                            langKurz = "Schuh";
-                            DatenbankAnbindung db2 = new DatenbankAnbindung();
-                            db2.datenbankNutzen();
-                            db2.einfuegenSchuhe(name2,farbe,langKurz,groesse);
-
-                        } catch (SQLException ex) {
-                            ex.printStackTrace();
-                        }
-                        break;
-                }
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
+                    }
+                    break;
+                case "SH":
+                    try {
+                        langKurz = "Schuh";
+                        DatenbankAnbindung db2 = new DatenbankAnbindung();
+                        db2.datenbankNutzen();
+                        db2.einfuegenSchuhe(name2,farbe,langKurz,groesse);
+                        System.out.println("moin");
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
+                    }
+                    break;
+            }
 
         }
 

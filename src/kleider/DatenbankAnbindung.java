@@ -36,9 +36,9 @@ public class DatenbankAnbindung {
         try {
             stm.executeUpdate("CREATE DATABASE IF NOT EXISTS kleiderschrank");
             stm.executeUpdate("use kleiderschrank");
-            stm.executeUpdate("CREATE TABLE IF NOT EXISTS Hose  (name varchar(255), farbe varchar(255), art varchar(255), groesse varchar(255));");
-            stm.executeUpdate("CREATE TABLE IF NOT EXISTS Schuhe  (name varchar(255), farbe varchar(255), art varchar(255), groesse varchar(255));");
-            stm.executeUpdate("CREATE TABLE IF NOT EXISTS Oberteil  (name varchar(255), farbe varchar(255), art varchar(255), groesse varchar(255));");
+            stm.executeUpdate("CREATE TABLE IF NOT EXISTS Hose  (hID INTEGER NOT NULL AUTO_INCREMENT, name varchar(255), farbe varchar(255), art varchar(255), groesse varchar(255), PRIMARY KEY (hID));");
+            stm.executeUpdate("CREATE TABLE IF NOT EXISTS Schuhe  (sID INTEGER NOT NULL AUTO_INCREMENT, name varchar(255), farbe varchar(255), art varchar(255), groesse varchar(255), PRIMARY KEY (sID));");
+            stm.executeUpdate("CREATE TABLE IF NOT EXISTS Oberteil  (oID INTEGER NOT NULL AUTO_INCREMENT, name varchar(255), farbe varchar(255), art varchar(255), groesse varchar(255), PRIMARY KEY (oID));");
 
 
         } catch (SQLException e) {
@@ -139,9 +139,9 @@ public class DatenbankAnbindung {
         }
     }
 
-    public void loeschenHose(String name,  String art, String groesse) {
+    public void loeschenHose(String art, int hID) {
         try {
-            String loeschen = "DELETE FROM Hose WHERE name = '" + name + "';";
+            String loeschen = "DELETE FROM Hose WHERE hID = '" + hID + "';";
             Statement stm = conn.createStatement();
             stm.execute(loeschen);
         } catch (SQLException e) {
@@ -149,9 +149,9 @@ public class DatenbankAnbindung {
         }
     }
 
-    public void loeschenSchuhe(String name, String art, String groesse) {
+    public void loeschenSchuhe(String art, int sID) {
         try {
-            String loeschen = "DELETE FROM Schuhe WHERE name = '" + name + "';";
+            String loeschen = "DELETE FROM Schuhe WHERE sID = '"+sID+"' ;";
             Statement stm = conn.createStatement();
             stm.execute(loeschen);
         } catch (SQLException e) {
@@ -159,9 +159,9 @@ public class DatenbankAnbindung {
         }
     }
 
-    public void loeschenOberteil(String name, String art, String groesse) {
+    public void loeschenOberteil(String art, int oID) {
         try {
-            String loeschen = "DELETE FROM Oberteil WHERE name = '" + name + "';";
+            String loeschen = "DELETE FROM Oberteil WHERE oID = '"+oID+"' ;";
             Statement stm = conn.createStatement();
             stm.execute(loeschen);
         } catch (SQLException e) {
@@ -170,23 +170,43 @@ public class DatenbankAnbindung {
     }
 
     public void zusammenstellenOutfit() {
+        String m= "",c="",d="",n="";
+
         String farb = "";
         int random = (int) (Math.random() * 11);
         switch (random) {
             case 1:
                 farb = "schwarz";
                 try {
-                    String abfrage = "SELECT * FROM Oberteil WHERE farbe LIKE 'schwarz'";
+                    String abfrage = "SELECT * FROM Oberteil WHERE farbe LIKE 'schwarz' ORDER BY RAND() LIMIT 1";
                     Statement stm = conn.createStatement();
                     ResultSet rs = stm.executeQuery(abfrage);
+
+
                     while (rs.next()) {
-
-                        System.out.println(rs.getString(1) + " " +
-                                rs.getString(2) + " " +
-                                rs.getString(3) + " " +
-                                rs.getString(4));
-
+                        m = rs.getString(1) + ", " +
+                                rs.getString(2) + ", " +
+                                rs.getString(3) + ", " +
+                                rs.getString(4);
+                        c=c+"\n   "+m;
+                    }if(c==""){
+                        zusammenstellenOutfit();
                     }
+
+                    String abfrage2 = "SELECT * FROM Hose WHERE farbe LIKE 'grau' OR farbe LIKE 'rot' OR farbe LIKE 'gelb' OR farbe LIKE 'orange' OR farbe LIKE 'blau' OR farbe LIKE 'hellblau' OR farbe LIKE 'gruen' OR farbe LIKE 'beige' ORDER BY RAND() LIMIT 1";
+
+                    ResultSet rp = stm.executeQuery(abfrage2);
+
+                    while (rp.next()) {
+                        n = rp.getString(1) + ", " +
+                                rp.getString(2) + ", " +
+                                rp.getString(3) + ", " +
+                                rp.getString(4);
+                        d=d+"\n   "+n;
+                    }if(d==""){
+                        zusammenstellenOutfit();
+                    }
+                    System.out.println(d + c);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -194,48 +214,100 @@ public class DatenbankAnbindung {
             case 2:
                 farb = "Rot";
                 try {
-                    String abfrage = "SELECT * FROM Oberteil WHERE farbe LIKE 'rot'";
+                    String abfrage = "SELECT * FROM Oberteil WHERE farbe LIKE 'rot' ORDER BY RAND() LIMIT 1";
                     Statement stm = conn.createStatement();
                     ResultSet rs = stm.executeQuery(abfrage);
                     while (rs.next()) {
-                        System.out.println(rs.getString(1) + " " +
-                                rs.getString(2) + " " +
-                                rs.getString(3) + " " +
-                                rs.getString(4));
+                        m = rs.getString(1) + ", " +
+                                rs.getString(2) + ", " +
+                                rs.getString(3) + ", " +
+                                rs.getString(4);
+                        c=c+"\n   "+m;
+                    }if(c==""){
+                        zusammenstellenOutfit();
                     }
+
+                    String abfrage2 = "SELECT * FROM Hose WHERE farbe LIKE 'grau' OR farbe LIKE 'schwarz' OR farbe LIKE 'blau' OR farbe LIKE 'hellblau' OR farbe LIKE 'beige' ORDER BY RAND() LIMIT 1";
+                    ResultSet rp = stm.executeQuery(abfrage2);
+
+                    while (rp.next()) {
+                        n = rp.getString(1) + ", " +
+                                rp.getString(2) + ", " +
+                                rp.getString(3) + ", " +
+                                rp.getString(4);
+                        d=d+"\n   "+n;
+                    }if(d==""){
+                        zusammenstellenOutfit();
+                    }
+                    System.out.println(d + c);
                 } catch (SQLException e) {
                     e.printStackTrace();
+
+
                 }
 
                 break;
             case 3:
                 farb = "gelb";
                 try {
-                    String abfrage = "SELECT * FROM Oberteil WHERE farbe LIKE 'gelb'";
+                    String abfrage = "SELECT * FROM Oberteil WHERE farbe LIKE 'gelb' ORDER BY RAND() LIMIT 1";
                     Statement stm = conn.createStatement();
                     ResultSet rs = stm.executeQuery(abfrage);
                     while (rs.next()) {
-                        System.out.println(rs.getString(1) + " " +
-                                rs.getString(2) + " " +
-                                rs.getString(3) + " " +
-                                rs.getString(4));
+                        m = rs.getString(1) + ", " +
+                                rs.getString(2) + ", " +
+                                rs.getString(3) + ", " +
+                                rs.getString(4);
+                        c=c+"\n   "+m;
+                    }if(c==""){
+                        zusammenstellenOutfit();
                     }
+                    String abfrage2 = "SELECT * FROM Hose WHERE farbe LIKE 'grau' OR farbe LIKE OR farbe LIKE 'blau' OR farbe LIKE 'hellblau' ORDER BY RAND() LIMIT 1";
+                    ResultSet rp = stm.executeQuery(abfrage2);
+
+                    while (rp.next()) {
+                        n = rp.getString(1) + ", " +
+                                rp.getString(2) + ", " +
+                                rp.getString(3) + ", " +
+                                rp.getString(4);
+                        d=d+"\n   "+n;
+                    }if(d==""){
+                        zusammenstellenOutfit();
+                    }
+                    System.out.println(d + c);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
                 break;
             case 4:
-                farb = "grün";
+                farb = "gr�n";
                 try {
-                    String abfrage = "SELECT * FROM Oberteil WHERE farbe LIKE 'grün'";
+                    String abfrage = "SELECT * FROM Oberteil WHERE farbe LIKE 'gruen' ORDER BY RAND() LIMIT 1";
+
                     Statement stm = conn.createStatement();
                     ResultSet rs = stm.executeQuery(abfrage);
                     while (rs.next()) {
-                        System.out.println(rs.getString(1) + " " +
-                                rs.getString(2) + " " +
-                                rs.getString(3) + " " +
-                                rs.getString(4));
+                        m = rs.getString(1) + ", " +
+                                rs.getString(2) + ", " +
+                                rs.getString(3) + ", " +
+                                rs.getString(4);
+                        c=c+"\n   "+m;
+                    }if(c==""){
+                        zusammenstellenOutfit();
                     }
+                    String abfrage2 = "SELECT * FROM Hose WHERE farbe LIKE 'grau' OR farbe LIKEOR farbe LIKE 'blau' OR farbe LIKE 'hellblau' OR farbe LIKE 'schwarz' ORDER BY RAND() LIMIT 1";
+                    ResultSet rp = stm.executeQuery(abfrage2);
+
+                    while (rp.next()) {
+                        n = rp.getString(1) + ", " +
+                                rp.getString(2) + ", " +
+                                rp.getString(3) + ", " +
+                                rp.getString(4);
+                        d=d+"\n   "+n;
+                    }if(d==""){
+                        zusammenstellenOutfit();
+                    }
+                    System.out.println(d + c);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -243,15 +315,32 @@ public class DatenbankAnbindung {
             case 5:
                 farb = "braun";
                 try {
-                    String abfrage = "SELECT * FROM Oberteil WHERE farbe LIKE 'braun'";
+                    String abfrage = "SELECT * FROM Oberteil WHERE farbe LIKE 'braun' ORDER BY RAND() LIMIT 1";
+
                     Statement stm = conn.createStatement();
                     ResultSet rs = stm.executeQuery(abfrage);
                     while (rs.next()) {
-                        System.out.println(rs.getString(1) + " " +
-                                rs.getString(2) + " " +
-                                rs.getString(3) + " " +
-                                rs.getString(4));
+                        m = rs.getString(1) + ", " +
+                                rs.getString(2) + ", " +
+                                rs.getString(3) + ", " +
+                                rs.getString(4);
+                        c=c+"\n   "+m;
+                    }if(c==""){
+                        zusammenstellenOutfit();
                     }
+                    String abfrage2 = "SELECT * FROM Hose WHERE farbe LIKE 'grau' OR farbe LIKEOR farbe LIKE 'blau' OR farbe LIKE 'hellblau' OR farbe LIKE 'schwarz' ORDER BY RAND() LIMIT 1";
+                    ResultSet rp = stm.executeQuery(abfrage2);
+
+                    while (rp.next()) {
+                        n = rp.getString(1) + ", " +
+                                rp.getString(2) + ", " +
+                                rp.getString(3) + ", " +
+                                rp.getString(4);
+                        d=d+"\n   "+n;
+                    }if(d==""){
+                        zusammenstellenOutfit();
+                    }
+                    System.out.println(d + c);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -259,31 +348,63 @@ public class DatenbankAnbindung {
             case 6:
                 farb = "grau";
                 try {
-                    String abfrage = "SELECT * FROM Oberteil WHERE farbe LIKE 'grau'";
+                    String abfrage = "SELECT * FROM Oberteil WHERE farbe LIKE 'grau' ORDER BY RAND() LIMIT 1";
                     Statement stm = conn.createStatement();
                     ResultSet rs = stm.executeQuery(abfrage);
                     while (rs.next()) {
-                        System.out.println(rs.getString(1) + " " +
-                                rs.getString(2) + " " +
-                                rs.getString(3) + " " +
-                                rs.getString(4));
+                        m = rs.getString(1) + ", " +
+                                rs.getString(2) + ", " +
+                                rs.getString(3) + ", " +
+                                rs.getString(4);
+                        c=c+"\n   "+m;
+                    }if(c==""){
+                        zusammenstellenOutfit();
                     }
+                    String abfrage2 = "SELECT * FROM Hose WHERE farbe LIKE 'grau' OR farbe LIKE 'blau' OR farbe LIKE 'hellblau' OR farbe LIKE 'beige' ORDER BY RAND() LIMIT 1";
+                    ResultSet rp = stm.executeQuery(abfrage2);
+
+                    while (rp.next()) {
+                        n = rp.getString(1) + ", " +
+                                rp.getString(2) + ", " +
+                                rp.getString(3) + ", " +
+                                rp.getString(4);
+                        d=d+"\n   "+n;
+                    }if(d==""){
+                        zusammenstellenOutfit();
+                    }
+                    System.out.println(d + c);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
                 break;
             case 7:
-                farb = "weiß";
+                farb = "weiss";
                 try {
-                    String abfrage = "SELECT * FROM Oberteil WHERE farbe LIKE 'weiß'";
+                    String abfrage = "SELECT * FROM Oberteil WHERE farbe LIKE 'weiss' ORDER BY RAND() LIMIT 1";
                     Statement stm = conn.createStatement();
                     ResultSet rs = stm.executeQuery(abfrage);
                     while (rs.next()) {
-                        System.out.println(rs.getString(1) + " " +
-                                rs.getString(2) + " " +
-                                rs.getString(3) + " " +
-                                rs.getString(4));
+                        m = rs.getString(1) + ", " +
+                                rs.getString(2) + ", " +
+                                rs.getString(3) + ", " +
+                                rs.getString(4);
+                        c=c+"\n   "+m;
+                    }if(c==""){
+                        zusammenstellenOutfit();
                     }
+                    String abfrage2 = "SELECT * FROM Hose WHERE farbe LIKE 'grau' OR farbe LIKE 'schwarz' OR farbe LIKE 'blau' OR farbe LIKE 'hellblau' OR farbe LIKE 'gruen' OR farbe LIKE 'beige' ORDER BY RAND() LIMIT 1";
+                    ResultSet rp = stm.executeQuery(abfrage2);
+
+                    while (rp.next()) {
+                        n = rp.getString(1) + ", " +
+                                rp.getString(2) + ", " +
+                                rp.getString(3) + ", " +
+                                rp.getString(4);
+                        d=d+"\n   "+n;
+                    }if(d==""){
+                        zusammenstellenOutfit();
+                    }
+                    System.out.println(d + c);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -291,15 +412,31 @@ public class DatenbankAnbindung {
             case 8:
                 farb = "orange";
                 try {
-                    String abfrage = "SELECT * FROM Oberteil WHERE farbe LIKE 'orange'";
+                    String abfrage = "SELECT * FROM Oberteil WHERE farbe LIKE 'orange' ORDER BY RAND() LIMIT 1";
                     Statement stm = conn.createStatement();
                     ResultSet rs = stm.executeQuery(abfrage);
                     while (rs.next()) {
-                        System.out.println(rs.getString(1) + " " +
-                                rs.getString(2) + " " +
-                                rs.getString(3) + " " +
-                                rs.getString(4));
+                        m = rs.getString(1) + ", " +
+                                rs.getString(2) + ", " +
+                                rs.getString(3) + ", " +
+                                rs.getString(4);
+                        c=c+"\n   "+m;
+                    }if(c==""){
+                        zusammenstellenOutfit();
                     }
+                    String abfrage2 = "SELECT * FROM Hose WHERE farbe LIKE 'grau' OR farbe LIKE 'schwarz' OR farbe LIKE 'blau' ORDER BY RAND() LIMIT 1";
+                    ResultSet rp = stm.executeQuery(abfrage2);
+
+                    while (rp.next()) {
+                        n = rp.getString(1) + ", " +
+                                rp.getString(2) + ", " +
+                                rp.getString(3) + ", " +
+                                rp.getString(4);
+                        d=d+"\n   "+n;
+                    }if(d==""){
+                        zusammenstellenOutfit();
+                    }
+                    System.out.println(d + c);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -307,15 +444,31 @@ public class DatenbankAnbindung {
             case 9:
                 farb = "blau";
                 try {
-                    String abfrage = "SELECT * FROM Oberteil WHERE farbe LIKE 'blau'";
+                    String abfrage = "SELECT * FROM Oberteil WHERE farbe LIKE 'blau' ORDER BY RAND() LIMIT 1";
                     Statement stm = conn.createStatement();
                     ResultSet rs = stm.executeQuery(abfrage);
                     while (rs.next()) {
-                        System.out.println(rs.getString(1) + " " +
-                                rs.getString(2) + " " +
-                                rs.getString(3) + " " +
-                                rs.getString(4));
+                        m = rs.getString(1) + ", " +
+                                rs.getString(2) + ", " +
+                                rs.getString(3) + ", " +
+                                rs.getString(4);
+                        c=c+"\n   "+m;
+                    }if(c==""){
+                        zusammenstellenOutfit();
                     }
+                    String abfrage2 = "SELECT * FROM Hose WHERE farbe LIKE 'grau' OR farbe LIKE 'schwarz' OR farbe LIKE 'blau' OR farbe LIKE 'beige' ORDER BY RAND() LIMIT 1";
+                    ResultSet rp = stm.executeQuery(abfrage2);
+
+                    while (rp.next()) {
+                        n = rp.getString(1) + ", " +
+                                rp.getString(2) + ", " +
+                                rp.getString(3) + ", " +
+                                rp.getString(4);
+                        d=d+"\n   "+n;
+                    }if(d==""){
+                        zusammenstellenOutfit();
+                    }
+                    System.out.println(d + c);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -323,15 +476,31 @@ public class DatenbankAnbindung {
             case 10:
                 farb = "hellblau";
                 try {
-                    String abfrage = "SELECT * FROM Oberteil WHERE farbe LIKE 'hellblau'";
+                    String abfrage = "SELECT * FROM Oberteil WHERE farbe LIKE 'hellblau' ORDER BY RAND() LIMIT 1";
                     Statement stm = conn.createStatement();
                     ResultSet rs = stm.executeQuery(abfrage);
                     while (rs.next()) {
-                        System.out.println(rs.getString(1) + " " +
-                                rs.getString(2) + " " +
-                                rs.getString(3) + " " +
-                                rs.getString(4));
+                        m = rs.getString(1) + ", " +
+                                rs.getString(2) + ", " +
+                                rs.getString(3) + ", " +
+                                rs.getString(4);
+                        c=c+"\n   "+m;
+                    }if(c==""){
+                        zusammenstellenOutfit();
                     }
+                    String abfrage2 = "SELECT * FROM Hose WHERE farbe LIKE 'grau' OR farbe LIKE 'schwarz' OR farbe LIKE 'blau' OR farbe LIKE 'beige' ORDER BY RAND() LIMIT 1";
+                    ResultSet rp = stm.executeQuery(abfrage2);
+
+                    while (rp.next()) {
+                        n = rp.getString(1) + ", " +
+                                rp.getString(2) + ", " +
+                                rp.getString(3) + ", " +
+                                rp.getString(4);
+                        d=d+"\n   "+n;
+                    }if(d==""){
+                        zusammenstellenOutfit();
+                    }
+                    System.out.println(d + c);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -339,31 +508,59 @@ public class DatenbankAnbindung {
             case 11:
                 farb = "beige";
                 try {
-                    String abfrage = "SELECT * FROM Oberteil WHERE farbe LIKE 'beige'";
+                    String abfrage = "SELECT * FROM Oberteil WHERE farbe LIKE 'beige' ORDER BY RAND() LIMIT 1";
                     Statement stm = conn.createStatement();
                     ResultSet rs = stm.executeQuery(abfrage);
                     while (rs.next()) {
-                        System.out.println(rs.getString(1) + " " +
-                                rs.getString(2) + " " +
-                                rs.getString(3) + " " +
-                                rs.getString(4));
+                        m = rs.getString(1) + ", " +
+                                rs.getString(2) + ", " +
+                                rs.getString(3) + ", " +
+                                rs.getString(4);
+                        c=c+"\n   "+m;
+                    }if(c==""){
+                        zusammenstellenOutfit();
                     }
+                    String abfrage2 = "SELECT * FROM Hose WHERE farbe LIKE 'grau' OR farbe LIKE 'schwarz' OR farbe LIKE 'blau' OR farbe LIKE 'hellblau' ORDER BY RAND() LIMIT 1";
+                    ResultSet rp = stm.executeQuery(abfrage2);
+
+                    while (rp.next()) {
+                        n = rp.getString(1) + ", " +
+                                rp.getString(2) + ", " +
+                                rp.getString(3) + ", " +
+                                rp.getString(4);
+                        d=d+"\n   "+n;
+                    }
+                    System.out.println(d + c);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
                 break;
             case 12:
-                farb = "hellgrün";
+                farb = "hellgr�n";
                 try {
-                    String abfrage = "SELECT * FROM Oberteil WHERE farbe LIKE 'hellgrün'";
+                    String abfrage = "SELECT * FROM Oberteil WHERE farbe LIKE 'hellgruen' ORDER BY RAND() LIMIT 1";
                     Statement stm = conn.createStatement();
                     ResultSet rs = stm.executeQuery(abfrage);
                     while (rs.next()) {
-                        System.out.println(rs.getString(1) + " " +
-                                rs.getString(2) + " " +
-                                rs.getString(3) + " " +
-                                rs.getString(4));
+                        m = rs.getString(1) + ", " +
+                                rs.getString(2) + ", " +
+                                rs.getString(3) + ", " +
+                                rs.getString(4);
+                        c=c+"\n   "+m;
+                    }if(c==""){
+                        zusammenstellenOutfit();
                     }
+                    String abfrage2 = "SELECT * FROM Hose WHERE farbe LIKE 'grau' OR farbe LIKE 'schwarz' OR farbe LIKE 'beige' ORDER BY RAND() LIMIT 1 ";
+                    ResultSet rp = stm.executeQuery(abfrage2);
+
+                    while (rp.next()) {
+                        n = rp.getString(1) + ", " +
+                                rp.getString(2) + ", " +
+                                rp.getString(3) + ", " +
+                                rp.getString(4);
+                        d=d+"\n   "+n;
+                    }
+                    System.out.println(d + c);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -371,15 +568,33 @@ public class DatenbankAnbindung {
             case 13:
                 farb = "pink";
                 try {
-                    String abfrage = "SELECT * FROM Oberteil WHERE farbe LIKE 'pink'";
+                    String abfrage = "SELECT * FROM Oberteil WHERE farbe LIKE 'pink' ORDER BY RAND() LIMIT 1; ";
                     Statement stm = conn.createStatement();
                     ResultSet rs = stm.executeQuery(abfrage);
                     while (rs.next()) {
-                        System.out.println(rs.getString(1) + " " +
-                                rs.getString(2) + " " +
-                                rs.getString(3) + " " +
-                                rs.getString(4));
+                        m = rs.getString(1) + ", " +
+                                rs.getString(2) + ", " +
+                                rs.getString(3) + ", " +
+                                rs.getString(4);
+                        c=c+"\n   "+m;
+
+                    }if(c==""){
+                        zusammenstellenOutfit();
                     }
+                    String abfrage2 = "SELECT * FROM Hose WHERE farbe LIKE 'grau' OR farbe LIKE 'schwarz' OR farbe LIKE 'beige' ORDER BY RAND() LIMIT 1 ";
+                    ResultSet rp = stm.executeQuery(abfrage2);
+
+                    while (rp.next()) {
+                        n = rp.getString(1) + ", " +
+                                rp.getString(2) + ", " +
+                                rp.getString(3) + ", " +
+                                rp.getString(4);
+                        d=d+"\n   "+n;
+                    }
+                    if(d==""){
+                        zusammenstellenOutfit();
+                    }
+                    System.out.println(d + c);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -387,15 +602,30 @@ public class DatenbankAnbindung {
             case 14:
                 farb = "Lila";
                 try {
-                    String abfrage = "SELECT * FROM Oberteil WHERE farbe LIKE 'lila'";
+                    String abfrage = "SELECT * FROM Oberteil WHERE farbe LIKE 'lila' ORDER BY RAND() LIMIT 1; ";
                     Statement stm = conn.createStatement();
                     ResultSet rs = stm.executeQuery(abfrage);
                     while (rs.next()) {
-                        System.out.println(rs.getString(1) + " " +
-                                rs.getString(2) + " " +
-                                rs.getString(3) + " " +
-                                rs.getString(4));
+                        m = rs.getString(1) + ", " +
+                                rs.getString(2) + ", " +
+                                rs.getString(3) + ", " +
+                                rs.getString(4);
+                        c=c+"\n   "+m;
+                    }if(c==""){
+                        zusammenstellenOutfit();
                     }
+                    String abfrage2 = "SELECT * FROM Hose WHERE farbe LIKE 'grau' OR farbe LIKE 'schwarz' OR farbe LIKE 'beige' ORDER BY RAND() LIMIT 1 ";
+
+                    ResultSet rp = stm.executeQuery(abfrage2);
+
+                    while (rp.next()) {
+                        n = rp.getString(1) + ", " +
+                                rp.getString(2) + ", " +
+                                rp.getString(3) + ", " +
+                                rp.getString(4);
+                        d=d+"\n   "+n;
+                    }
+                    System.out.println(d + c);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -417,10 +647,11 @@ public class DatenbankAnbindung {
             ResultSet rs = stm.executeQuery(abfrage);
 
             while (rs.next()) {
-                m = rs.getString(1) + ", " +
+                m = rs.getInt(1) + ", " +
                         rs.getString(2) + ", " +
                         rs.getString(3) + ", " +
-                        rs.getString(4);
+                        rs.getString(4) + ", " +
+                        rs.getString(5);
                 c=c+"\n   "+m;
             }
 
@@ -435,10 +666,11 @@ public class DatenbankAnbindung {
             ResultSet rs = stm.executeQuery(abfrage);
 
             while (rs.next()) {
-                n = rs.getString(1) + ", " +
+                n = rs.getInt(1) + ", " +
                         rs.getString(2) + ", " +
                         rs.getString(3) + ", " +
-                        rs.getString(4);
+                        rs.getString(4) + ", " +
+                        rs.getString(5);
                 a=a+"\n   "+n;
             }
 
@@ -453,10 +685,11 @@ public class DatenbankAnbindung {
             ResultSet rs = stm.executeQuery(abfrage);
 
             while (rs.next()) {
-                o = rs.getString(1) + ", " +
+                o = rs.getInt(1) + ", " +
                         rs.getString(2) + ", " +
                         rs.getString(3) + ", " +
-                        rs.getString(4);
+                        rs.getString(4) + ", " +
+                        rs.getString(5);
                 b=b+"\n   "+o;
             }
 
@@ -466,7 +699,85 @@ public class DatenbankAnbindung {
 
         }
 
-        return ""+c+" "+a+" "+b+"";
+        return c+ a+ b;
+    }
+    public String  ausgebenOutfitS(){
+        String m= "";
+        String c="";
+
+        try {
+            String abfrage = "SELECT * FROM Schuhe";
+            Statement stm = conn.createStatement();
+            ResultSet rs = stm.executeQuery(abfrage);
+
+            while (rs.next()) {
+                m = rs.getInt(1) + ", " +
+                        rs.getString(2) + ", " +
+                        rs.getString(3) + ", " +
+                        rs.getString(4) + ", " +
+                        rs.getString(5);
+                c=c+"\n   "+m;
+            }
+
+            System.out.println(m);
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+
+        return c ;
+    }
+    public String  ausgebenOutfitH(){
+        String m= "";
+        String c="";
+
+        try {
+            String abfrage = "SELECT * FROM Hose";
+            Statement stm = conn.createStatement();
+            ResultSet rs = stm.executeQuery(abfrage);
+
+            while (rs.next()) {
+                m = rs.getInt(1) + ", " +
+                        rs.getString(2) + ", " +
+                        rs.getString(3) + ", " +
+                        rs.getString(4) + ", " +
+                        rs.getString(5);
+                c=c+"\n   "+m;
+            }
+
+            System.out.println(m);
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+
+        return c ;
+    }
+    public String  ausgebenOutfitO(){
+        String m= "";
+        String c="";
+
+        try {
+            String abfrage = "SELECT * FROM Oberteil";
+            Statement stm = conn.createStatement();
+            ResultSet rs = stm.executeQuery(abfrage);
+
+            while (rs.next()) {
+                m = rs.getInt(1) + ", " +
+                        rs.getString(2) + ", " +
+                        rs.getString(3) + ", " +
+                        rs.getString(4) + ", " +
+                        rs.getString(5);
+                c=c+"\n   "+m;
+            }
+
+            System.out.println(m);
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+
+        return c ;
     }
 
     public void tabellenLeeren(){
