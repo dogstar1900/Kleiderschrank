@@ -15,7 +15,6 @@
       <change beforePath="$PROJECT_DIR$/out/production/Kleiderschrank/kleider/Schrank.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Kleiderschrank/kleider/Schrank.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/kleider/DatenbankAnbindung.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kleider/DatenbankAnbindung.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/kleider/Schrank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kleider/Schrank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kleider/SchrankVerwaltung.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kleider/SchrankVerwaltung.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +132,7 @@
       <workItem from="1649060621216" duration="37160000" />
       <workItem from="1652256419490" duration="26395000" />
       <workItem from="1653899618948" duration="2971000" />
-      <workItem from="1654585834563" duration="23165000" />
+      <workItem from="1654585834563" duration="31608000" />
     </task>
     <servers />
   </component>
@@ -174,6 +173,36 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/kleider/Schrank.java</url>
+          <line>157</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/kleider/Schrank.java</url>
+          <line>194</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/kleider/Schrank.java</url>
+          <line>308</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/kleider/Schrank.java</url>
+          <line>399</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/kleider/DatenbankAnbindung.java</url>
+          <line>668</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/kleider/DatenbankAnbindung.java</url>
+          <line>174</line>
+          <option name="timeStamp" value="24" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

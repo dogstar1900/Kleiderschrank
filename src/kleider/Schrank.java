@@ -45,6 +45,7 @@ public class Schrank extends JFrame implements ActionListener {
     JTextField loeschenID;
     JTextField loeschenArt;
 
+
     JButton button1;
     JButton button2;
     JButton button3;
@@ -52,6 +53,7 @@ public class Schrank extends JFrame implements ActionListener {
     JButton allesAkzept;
     JButton selectLoeschen;
     JButton allesLoeschen;
+    JButton randomOutfit;
 
     JLabel label1;
     JLabel label2;
@@ -69,6 +71,8 @@ public class Schrank extends JFrame implements ActionListener {
     JTextArea angezeigteKleidungLoeschenS;
     JTextArea angezeigteKleidungLoeschenH;
     JTextArea angezeigteKleidungLoeschenO;
+
+    JTextArea outfitAngezeigt;
 
     JLabel loeschenArtText;
     JLabel loeschenIDText;
@@ -151,6 +155,10 @@ public class Schrank extends JFrame implements ActionListener {
         allesLoeschen.setBounds(300,530,130,20);
         allesLoeschen.addActionListener(this);
 
+        randomOutfit = new JButton("Outfit aussgeben");
+        this.add(randomOutfit);
+        randomOutfit.setBounds(380,530,130,20);
+        randomOutfit.addActionListener(this);
 
         //Label
         label1 = new JLabel("Kleidung zeigen");
@@ -183,6 +191,10 @@ public class Schrank extends JFrame implements ActionListener {
         angezeigteKleidungLoeschenO=new JTextArea("");
         this.add(angezeigteKleidungLoeschenO);
         angezeigteKleidungLoeschenO.setBounds(610,150,280,350);
+
+        outfitAngezeigt = new JTextArea("");
+        this.add(outfitAngezeigt);
+        outfitAngezeigt.setBounds(400,150,280,20);
 
 
         label2 = new JLabel("Kleidung hinzufügen");
@@ -293,6 +305,8 @@ public class Schrank extends JFrame implements ActionListener {
         allesAkzept.setVisible(false);
         selectLoeschen.setVisible(false);
         allesLoeschen.setVisible(false);
+        randomOutfit.setVisible(false);
+        outfitAngezeigt.setVisible(false);
 
         label1.setVisible(false);
         label2.setVisible(false);
@@ -382,6 +396,8 @@ public class Schrank extends JFrame implements ActionListener {
         button3.setVisible(true);
         button4.setVisible(true);
         label4.setVisible(true);
+        randomOutfit.setVisible(true);
+        outfitAngezeigt.setVisible(true);
     }
 
 
@@ -756,6 +772,22 @@ public class Schrank extends JFrame implements ActionListener {
                         ex.printStackTrace();
                     }
                     break;
+
+
+            }
+
+        }
+        if(e.getSource()==randomOutfit){
+            try {
+                DatenbankAnbindung db2 = new DatenbankAnbindung();
+                db2.datenbankNutzen();
+                db2.zusammenstellenOutfit();
+                String testao="";
+                testao = db2.zusammenstellenOutfit();
+                outfitAngezeigt.setText(testao);
+
+            } catch (SQLException ex) {
+                ex.printStackTrace();
             }
 
         }
