@@ -194,7 +194,7 @@ public class Schrank extends JFrame implements ActionListener {
 
         outfitAngezeigt = new JTextArea("");
         this.add(outfitAngezeigt);
-        outfitAngezeigt.setBounds(400,150,280,20);
+        outfitAngezeigt.setBounds(210,150,500,20);
 
 
         label2 = new JLabel("Kleidung hinzufügen");
@@ -781,9 +781,9 @@ public class Schrank extends JFrame implements ActionListener {
             try {
                 DatenbankAnbindung db2 = new DatenbankAnbindung();
                 db2.datenbankNutzen();
-                db2.zusammenstellenOutfit();
+                //db2.zusammenstellenOutfit();
                 String testao="";
-                //testao = db2.zusammenstellenOutfit();
+                testao = db2.zusammenstellenOutfit();
                 outfitAngezeigt.setText(testao);
 
             } catch (SQLException ex) {

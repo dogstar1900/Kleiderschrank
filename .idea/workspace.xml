@@ -132,7 +132,7 @@
       <workItem from="1652256419490" duration="26395000" />
       <workItem from="1653899618948" duration="2971000" />
       <workItem from="1654585834563" duration="33262000" />
-      <workItem from="1655041793708" duration="10775000" />
+      <workItem from="1655041793708" duration="12593000" />
     </task>
     <servers />
   </component>
@@ -176,11 +176,6 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/kleider/Schrank.java</url>
-          <line>157</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/kleider/Schrank.java</url>
           <line>194</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
@@ -196,7 +191,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/kleider/DatenbankAnbindung.java</url>
-          <line>707</line>
+          <line>761</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>

@@ -277,8 +277,6 @@ public class DatenbankAnbindung {
             //System.out.println(zufall);
 
 
-
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -298,7 +296,8 @@ public class DatenbankAnbindung {
                         m = rs.getString(1) + ", " +
                                 rs.getString(2) + ", " +
                                 rs.getString(3) + ", " +
-                                rs.getString(4);
+                                rs.getString(4) + ", " +
+                                rs.getString(5);
                         c=c+""+m;
                     }
 
@@ -309,8 +308,11 @@ public class DatenbankAnbindung {
                         n = rp.getString(1) + ", " +
                                 rp.getString(2) + ", " +
                                 rp.getString(3) + ", " +
-                                rp.getString(4);
+                                rp.getString(4) + ", " +
+                                rp.getString(5);
                         d=d+""+n;
+                    }if(d.equals("")){
+                        zusammenstellenOutfit();
                     }
                     System.out.println(c+d);
                 } catch (SQLException e) {
@@ -327,7 +329,8 @@ public class DatenbankAnbindung {
                         m = rs.getString(1) + ", " +
                                 rs.getString(2) + ", " +
                                 rs.getString(3) + ", " +
-                                rs.getString(4);
+                                rs.getString(4) + ", " +
+                                rs.getString(5);
                         c=c+""+m;
                     }
 
@@ -338,8 +341,11 @@ public class DatenbankAnbindung {
                         n = rp.getString(1) + ", " +
                                 rp.getString(2) + ", " +
                                 rp.getString(3) + ", " +
-                                rp.getString(4);
+                                rp.getString(4) + ", " +
+                                rp.getString(5);
                         d=d+""+n;
+                    }if(d.equals("")){
+                        zusammenstellenOutfit();
                     }
                     System.out.println(c+d);
                 } catch (SQLException e) {
@@ -358,7 +364,8 @@ public class DatenbankAnbindung {
                         m = rs.getString(1) + ", " +
                                 rs.getString(2) + ", " +
                                 rs.getString(3) + ", " +
-                                rs.getString(4);
+                                rs.getString(4) + ", " +
+                                rs.getString(5);
                         c=c+""+m;
                     }
                     String abfrage2 = "SELECT * FROM Hose WHERE farbe LIKE 'schwarz' OR farbe LIKE 'grau' OR farbe LIKE 'blau' OR farbe LIKE 'hellblau' ORDER BY RAND() LIMIT 1";
@@ -369,7 +376,8 @@ public class DatenbankAnbindung {
                         n = rp.getString(1) + ", " +
                                 rp.getString(2) + ", " +
                                 rp.getString(3) + ", " +
-                                rp.getString(4);
+                                rp.getString(4) + ", " +
+                                rp.getString(5);
                         d=d+""+n;
                     }
                     System.out.println(c+d);
@@ -388,7 +396,8 @@ public class DatenbankAnbindung {
                         m = rs.getString(1) + ", " +
                                 rs.getString(2) + ", " +
                                 rs.getString(3) + ", " +
-                                rs.getString(4);
+                                rs.getString(4) + ", " +
+                                rs.getString(5);
                         c=c+""+m;
                     }
 
@@ -400,8 +409,11 @@ public class DatenbankAnbindung {
                         n = rp.getString(1) + ", " +
                                 rp.getString(2) + ", " +
                                 rp.getString(3) + ", " +
-                                rp.getString(4);
+                                rp.getString(4) + ", " +
+                                rp.getString(5);
                         d=d+""+n;
+                    }if(d.equals("")){
+                        zusammenstellenOutfit();
                     }
                     System.out.println(c+d);
                 } catch (SQLException e) {
@@ -419,7 +431,8 @@ public class DatenbankAnbindung {
                         m = rs.getString(1) + ", " +
                                 rs.getString(2) + ", " +
                                 rs.getString(3) + ", " +
-                                rs.getString(4);
+                                rs.getString(4) + ", " +
+                                rs.getString(5);
                         c=c+""+m;
                     }
                     String abfrage2 = "SELECT * FROM Hose WHERE farbe LIKE 'grau' OR farbe LIKE 'blau' OR farbe LIKE 'hellblau' OR farbe LIKE 'schwarz' ORDER BY RAND() LIMIT 1";
@@ -430,8 +443,11 @@ public class DatenbankAnbindung {
                         n = rp.getString(1) + ", " +
                                 rp.getString(2) + ", " +
                                 rp.getString(3) + ", " +
-                                rp.getString(4);
+                                rp.getString(4) + ", " +
+                                rp.getString(5);
                         d=d+""+n;
+                    }if(d.equals("")){
+                        zusammenstellenOutfit();
                     }
                     System.out.println(c+d);
                 } catch (SQLException e) {
@@ -448,7 +464,8 @@ public class DatenbankAnbindung {
                         m = rs.getString(1) + ", " +
                                 rs.getString(2) + ", " +
                                 rs.getString(3) + ", " +
-                                rs.getString(4);
+                                rs.getString(4) + ", " +
+                                rs.getString(5);
                         c=c+""+m;
                     }
 
@@ -460,8 +477,11 @@ public class DatenbankAnbindung {
                         n = rp.getString(1) + ", " +
                                 rp.getString(2) + ", " +
                                 rp.getString(3) + ", " +
-                                rp.getString(4);
+                                rp.getString(4) + ", " +
+                                rp.getString(5);
                         d=d+""+n;
+                    }if(d.equals("")){
+                        zusammenstellenOutfit();
                     }
                     System.out.println(c+d);
                 } catch (SQLException e) {
@@ -478,7 +498,8 @@ public class DatenbankAnbindung {
                         m = rs.getString(1) + ", " +
                                 rs.getString(2) + ", " +
                                 rs.getString(3) + ", " +
-                                rs.getString(4);
+                                rs.getString(4) + ", " +
+                                rs.getString(5);
                         c=c+""+m;
                     }
                     String abfrage2 = "SELECT * FROM Hose WHERE farbe LIKE 'grau' OR farbe LIKE 'schwarz' OR farbe LIKE 'blau' OR farbe LIKE 'hellblau' OR farbe LIKE 'gruen' OR farbe LIKE 'beige' ORDER BY RAND() LIMIT 1";
@@ -489,8 +510,11 @@ public class DatenbankAnbindung {
                         n = rp.getString(1) + ", " +
                                 rp.getString(2) + ", " +
                                 rp.getString(3) + ", " +
-                                rp.getString(4);
+                                rp.getString(4) + ", " +
+                                rp.getString(5);
                         d=d+""+n;
+                    }if(d.equals("")){
+                        zusammenstellenOutfit();
                     }
                     System.out.println(c+d);
                 } catch (SQLException e) {
@@ -507,7 +531,8 @@ public class DatenbankAnbindung {
                         m = rs.getString(1) + ", " +
                                 rs.getString(2) + ", " +
                                 rs.getString(3) + ", " +
-                                rs.getString(4);
+                                rs.getString(4) + ", " +
+                                rs.getString(5);
                         c=c+""+m;
                     }
                     String abfrage2 = "SELECT * FROM Hose WHERE farbe LIKE 'grau' OR farbe LIKE 'schwarz' OR farbe LIKE 'blau' ORDER BY RAND() LIMIT 1";
@@ -518,8 +543,11 @@ public class DatenbankAnbindung {
                         n = rp.getString(1) + ", " +
                                 rp.getString(2) + ", " +
                                 rp.getString(3) + ", " +
-                                rp.getString(4);
+                                rp.getString(4) + ", " +
+                                rp.getString(5);
                         d=d+""+n;
+                    }if(d.equals("")){
+                        zusammenstellenOutfit();
                     }
                     System.out.println(c+d);
                 } catch (SQLException e) {
@@ -536,7 +564,8 @@ public class DatenbankAnbindung {
                         m = rs.getString(1) + ", " +
                                 rs.getString(2) + ", " +
                                 rs.getString(3) + ", " +
-                                rs.getString(4);
+                                rs.getString(4) + ", " +
+                                rs.getString(5);
                         c=c+""+m;
                     }
                     String abfrage2 = "SELECT * FROM Hose WHERE farbe LIKE 'grau' OR farbe LIKE 'schwarz' OR farbe LIKE 'blau' OR farbe LIKE 'beige' ORDER BY RAND() LIMIT 1";
@@ -547,8 +576,11 @@ public class DatenbankAnbindung {
                         n = rp.getString(1) + ", " +
                                 rp.getString(2) + ", " +
                                 rp.getString(3) + ", " +
-                                rp.getString(4);
+                                rp.getString(4) + ", " +
+                                rp.getString(5);
                         d=d+""+n;
+                    }if(d.equals("")){
+                        zusammenstellenOutfit();
                     }
                     System.out.println(c+d);
                 } catch (SQLException e) {
@@ -565,7 +597,8 @@ public class DatenbankAnbindung {
                         m = rs.getString(1) + ", " +
                                 rs.getString(2) + ", " +
                                 rs.getString(3) + ", " +
-                                rs.getString(4);
+                                rs.getString(4) + ", " +
+                                rs.getString(5);
                         c=c+""+m;
                     }
                     String abfrage2 = "SELECT * FROM Hose WHERE farbe LIKE 'grau' OR farbe LIKE 'schwarz' OR farbe LIKE 'blau' OR farbe LIKE 'beige' ORDER BY RAND() LIMIT 1";
@@ -576,8 +609,11 @@ public class DatenbankAnbindung {
                         n = rp.getString(1) + ", " +
                                 rp.getString(2) + ", " +
                                 rp.getString(3) + ", " +
-                                rp.getString(4);
+                                rp.getString(4) + ", " +
+                                rp.getString(5);
                         d=d+""+n;
+                    }if(d.equals("")){
+                        zusammenstellenOutfit();
                     }
                     System.out.println(c+d);
                 } catch (SQLException e) {
@@ -594,7 +630,8 @@ public class DatenbankAnbindung {
                         m = rs.getString(1) + ", " +
                                 rs.getString(2) + ", " +
                                 rs.getString(3) + ", " +
-                                rs.getString(4);
+                                rs.getString(4) + ", " +
+                                rs.getString(5);
                         c=c+""+m;
                     }
                     String abfrage2 = "SELECT * FROM Hose WHERE farbe LIKE 'grau' OR farbe LIKE 'schwarz' OR farbe LIKE 'blau' OR farbe LIKE 'hellblau' ORDER BY RAND() LIMIT 1";
@@ -605,8 +642,11 @@ public class DatenbankAnbindung {
                         n = rp.getString(1) + ", " +
                                 rp.getString(2) + ", " +
                                 rp.getString(3) + ", " +
-                                rp.getString(4);
+                                rp.getString(4) + ", " +
+                                rp.getString(5);
                         d=d+""+n;
+                    }if(d.equals("")){
+                        zusammenstellenOutfit();
                     }
                     System.out.println(c+d);
                 } catch (SQLException e) {
@@ -623,7 +663,8 @@ public class DatenbankAnbindung {
                         m = rs.getString(1) + ", " +
                                 rs.getString(2) + ", " +
                                 rs.getString(3) + ", " +
-                                rs.getString(4);
+                                rs.getString(4) + ", " +
+                                rs.getString(5);
                         c=c+""+m;
                     }
                     String abfrage2 = "SELECT * FROM Hose WHERE farbe LIKE 'grau' OR farbe LIKE 'schwarz' OR farbe LIKE 'beige' ORDER BY RAND() LIMIT 1 ";
@@ -634,8 +675,11 @@ public class DatenbankAnbindung {
                         n = rp.getString(1) + ", " +
                                 rp.getString(2) + ", " +
                                 rp.getString(3) + ", " +
-                                rp.getString(4);
+                                rp.getString(4) + ", " +
+                                rp.getString(5);
                         d=d+""+n;
+                    }if(d.equals("")){
+                        zusammenstellenOutfit();
                     }
                     System.out.println(c+d);
                 } catch (SQLException e) {
@@ -652,7 +696,8 @@ public class DatenbankAnbindung {
                         m = rs.getString(1) + ", " +
                                 rs.getString(2) + ", " +
                                 rs.getString(3) + ", " +
-                                rs.getString(4);
+                                rs.getString(4) + ", " +
+                                rs.getString(5);
                         c=c+""+m;
 
                     }
@@ -664,8 +709,11 @@ public class DatenbankAnbindung {
                         n = rp.getString(1) + ", " +
                                 rp.getString(2) + ", " +
                                 rp.getString(3) + ", " +
-                                rp.getString(4);
+                                rp.getString(4) + ", " +
+                                rp.getString(5);
                         d=d+""+n;
+                    }if(d.equals("")){
+                        zusammenstellenOutfit();
                     }
                     System.out.println(c+d);
                 } catch (SQLException e) {
@@ -682,7 +730,8 @@ public class DatenbankAnbindung {
                         m = rs.getString(1) + ", " +
                                 rs.getString(2) + ", " +
                                 rs.getString(3) + ", " +
-                                rs.getString(4);
+                                rs.getString(4) + ", " +
+                                rs.getString(5);
                         c=c+""+m;
                     }
                     String abfrage2 = "SELECT * FROM Hose WHERE farbe LIKE 'grau' OR farbe LIKE 'schwarz' OR farbe LIKE 'beige' ORDER BY RAND() LIMIT 1 ";
@@ -693,22 +742,21 @@ public class DatenbankAnbindung {
                         n = rp.getString(1) + ", " +
                                 rp.getString(2) + ", " +
                                 rp.getString(3) + ", " +
-                                rp.getString(4);
+                                rp.getString(4) + ", " +
+                                rp.getString(5);
                         d=d+"\n   "+n;
+                    }if(d.equals("")){
+                        zusammenstellenOutfit();
                     }
                     System.out.println(c+d);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
                 break;
-
-
-
+                
         }
 
-        return c;
-
-
+        return c+"     "+d;
 
     }
 
