@@ -783,7 +783,7 @@ public class Schrank extends JFrame implements ActionListener {
                 db2.datenbankNutzen();
                 db2.zusammenstellenOutfit();
                 String testao="";
-                testao = db2.zusammenstellenOutfit();
+                //testao = db2.zusammenstellenOutfit();
                 outfitAngezeigt.setText(testao);
 
             } catch (SQLException ex) {
