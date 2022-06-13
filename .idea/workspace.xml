@@ -11,8 +11,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b490e682-4c0c-4dc2-ace7-67357d12ab75" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Kleiderschrank/kleider/DatenbankAnbindung.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Kleiderschrank/kleider/DatenbankAnbindung.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kleider/DatenbankAnbindung.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kleider/DatenbankAnbindung.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kleider/Schrank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kleider/Schrank.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +133,7 @@
       <workItem from="1652256419490" duration="26395000" />
       <workItem from="1653899618948" duration="2971000" />
       <workItem from="1654585834563" duration="33262000" />
-      <workItem from="1655041793708" duration="16771000" />
+      <workItem from="1655041793708" duration="17908000" />
     </task>
     <servers />
   </component>

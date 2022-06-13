@@ -95,7 +95,7 @@ public class Schrank extends JFrame implements ActionListener {
 
     public Schrank(){
 
-        this.setTitle("Digitaler Kleiderschrank");
+        this.setTitle("Digitaler Männerkleiderschrank");
         this.getContentPane().setLayout(null);
         this.setBounds(260,150,900,600);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

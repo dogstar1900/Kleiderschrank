@@ -301,7 +301,7 @@ public class DatenbankAnbindung {
                         c=c+""+m;
                     }
 
-                    String abfrage2 = "SELECT * FROM Hose WHERE farbe LIKE 'schwarz' OR farbe LIKE 'grau' OR farbe LIKE 'rot' OR farbe LIKE 'gelb' OR farbe LIKE 'orange' OR farbe LIKE 'blau' OR farbe LIKE 'hellblau' OR farbe LIKE 'gruen' OR farbe LIKE 'beige' ORDER BY RAND() LIMIT 1";
+                    String abfrage2 = "SELECT * FROM Hose WHERE farbe LIKE 'schwarz' OR farbe LIKE 'grau' OR farbe LIKE 'rot' OR farbe LIKE 'gelb' OR farbe LIKE 'orange' OR farbe LIKE 'blau' OR farbe LIKE 'hellblau' OR farbe LIKE 'gruen' OR farbe LIKE 'beige' OR farbe LIKE 'braun' ORDER BY RAND() LIMIT 1";
                     ResultSet rp = stm.executeQuery(abfrage2);
 
                     while (rp.next()) {
