@@ -753,7 +753,7 @@ public class DatenbankAnbindung {
                     e.printStackTrace();
                 }
                 break;
-                
+
         }
 
         return c+"     "+d;

@@ -13,12 +13,14 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Kleiderschrank/kleider/DatenbankAnbindung.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Kleiderschrank/kleider/DatenbankAnbindung.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/kleider/DatenbankAnbindung.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kleider/DatenbankAnbindung.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kleider/Schrank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kleider/Schrank.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/exportToHTML" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -62,7 +64,7 @@
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
@@ -132,7 +134,7 @@
       <workItem from="1652256419490" duration="26395000" />
       <workItem from="1653899618948" duration="2971000" />
       <workItem from="1654585834563" duration="33262000" />
-      <workItem from="1655041793708" duration="12593000" />
+      <workItem from="1655041793708" duration="16771000" />
     </task>
     <servers />
   </component>
@@ -191,7 +193,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/kleider/DatenbankAnbindung.java</url>
-          <line>761</line>
+          <line>757</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
